@@ -42,7 +42,6 @@ const Summary = () => {
       <div onClick={handleOpen}>
         <Typography>{summaryFormData.summary}</Typography>
       </div>
-      <Divider />
 
       <SummaryDetailsModal
         open={openSummaryDetails}

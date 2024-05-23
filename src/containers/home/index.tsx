@@ -6,16 +6,8 @@ const HomeWrapper = styled.div`
   border: 1px solid;
   padding: 1rem;
 `;
-interface IHome {
-  data: {
-    name: string;
-    mobileNumber: string;
-    emailAddress: string;
-    address: string;
-    linkedInAddress: string;
-  };
-}
-const Home = ({ data }: IHome) => {
+
+const Home = () => {
   return (
     <HomeWrapper>
       <PersonalDetails />

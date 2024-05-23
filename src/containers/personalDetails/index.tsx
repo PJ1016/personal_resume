@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PersonalDetailsContent from "./personalDetailsContent";
 import PersonalDetailsModal from "./personalDetailsModal";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 export interface PersonalDetailsForm {
   firstName: string;
   lastName: string;
@@ -25,7 +24,7 @@ const PersonalDetails = () => {
       linkedInAddress: "",
     },
   });
-  const { handleSubmit, control } = personalDetailHook;
+  const { handleSubmit } = personalDetailHook;
   const [formData, setFormData] = useState<PersonalDetailsForm>({
     firstName: "Praveen Jayanth",
     lastName: "Kamatham",
@@ -36,7 +35,7 @@ const PersonalDetails = () => {
   });
   const onSubmit = handleSubmit((data) => {
     setFormData(data);
-    handleOpen();
+    handleClose();
   });
   return (
     <>

@@ -131,7 +131,7 @@ const PersonalDetailsModal = ({
       </DialogContent>
       <DialogActions>
         <Button type="submit" onClick={onSubmit}>
-          Subscribe
+          Update details
         </Button>
       </DialogActions>
     </Dialog>
