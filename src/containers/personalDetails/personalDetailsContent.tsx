@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Button, Link, Stack, Typography } from "@mui/material";
 import React from "react";
 import type { PersonalDetailsForm } from ".";
 interface IPersonalDetailsContent {
@@ -18,6 +18,13 @@ const PersonalDetailsContent = ({
     address,
     linkedInAddress,
   } = formData;
+  const handleSocialSite = () => {
+    console.log("clicked");
+    window.open(
+      "https://www.linkedin.com/in/praveen-jayanth-8b0687199",
+      "_blank"
+    );
+  };
   return (
     <div onClick={() => handleOpen()}>
       <Typography textAlign="center" fontWeight="bold" fontSize="2rem">
@@ -32,7 +39,9 @@ const PersonalDetailsContent = ({
         <Typography>{mobileNumber}</Typography>
         <Typography>{emailAddress}</Typography>
         <Typography>{address}</Typography>
-        <Typography>{linkedInAddress}</Typography>
+        <Link component="button" onClick={() => handleSocialSite()}>
+          {linkedInAddress}
+        </Link>
       </Stack>
     </div>
   );
