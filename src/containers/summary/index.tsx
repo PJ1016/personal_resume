@@ -40,7 +40,7 @@ const Summary = () => {
       </Typography>
       <Divider sx={{ marginY: ".5rem" }} />
       <div onClick={handleOpen}>
-        <Typography>{summaryFormData.summary}</Typography>
+        <Typography fontSize="0.8rem">{summaryFormData.summary}</Typography>
       </div>
 
       <SummaryDetailsModal
@@ -49,7 +49,6 @@ const Summary = () => {
         onSubmit={onSubmit}
         summaryFormHook={summaryFormHook}
       />
-      <DevTool control={control} />
     </Box>
   );
 };
