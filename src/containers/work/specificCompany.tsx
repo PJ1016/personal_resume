@@ -8,12 +8,12 @@ const SpecificCompany = ({ data }: ISpecificCompany) => {
   return (
     <Box style={{ marginBottom: "1rem" }}>
       <Grid container>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={6} md={6}>
           <Typography fontWeight="bold" fontSize="0.8rem">
             {data.companyName}
           </Typography>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={6} md={6}>
           <Typography fontSize="0.8rem" fontWeight="bold" textAlign="end">
             {data.startDate}- {data.endDate}
           </Typography>

@@ -46,7 +46,6 @@ const PersonalDetails = () => {
         onSubmit={onSubmit}
         personalDetailHook={personalDetailHook}
       />
-      {/* <DevTool control={control} /> */}
     </>
   );
 };
