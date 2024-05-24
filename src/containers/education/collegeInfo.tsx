@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import type { IEducationFormHook } from ".";
 interface ICollegeInfo {
@@ -6,7 +6,7 @@ interface ICollegeInfo {
 }
 const CollegeInfo = ({ formData }: ICollegeInfo) => {
   return (
-    <div style={{ marginBottom: "1rem" }}>
+    <Box style={{ marginBottom: "1rem" }}>
       <Grid container>
         <Grid item xs={12} md={6}>
           <Typography fontWeight="bold" fontSize="0.8rem">
@@ -29,7 +29,16 @@ const CollegeInfo = ({ formData }: ICollegeInfo) => {
           </Typography>
         </Grid>
       </Grid>
-    </div>
+      <ul>
+        {formData.additionalContent?.split("\n").map((item, index) => (
+          <li>
+            <Typography fontSize="0.8rem" fontStyle="italic" key={index}>
+              {item}X
+            </Typography>
+          </li>
+        ))}
+      </ul>
+    </Box>
   );
 };
 

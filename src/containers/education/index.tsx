@@ -10,6 +10,7 @@ export interface IEducationFormHook {
   course: string;
   startDate: string;
   endDate: string;
+  additionalContent?: string;
 }
 export const educationDefaultValues = {
   education: [
@@ -54,7 +55,6 @@ const Education = () => {
         handleOpen={handleOpen}
       />
       <EducationModal
-        educationFormData={educationFormData}
         open={isEducationModalOpen}
         handleClose={handleClose}
         onSubmit={onSubmit}

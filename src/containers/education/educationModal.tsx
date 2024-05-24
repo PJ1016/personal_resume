@@ -18,7 +18,7 @@ import {
   type UseFormReturn,
   type UseFormStateReturn,
 } from "react-hook-form";
-import type { IEducationFormHook, IEducationHookProps } from ".";
+import type { IEducationHookProps } from ".";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 interface IEducationModal {
@@ -26,14 +26,12 @@ interface IEducationModal {
   handleClose: (close: boolean) => void;
   onSubmit: any;
   educationFormHook: UseFormReturn<IEducationHookProps, any, undefined>;
-  educationFormData: IEducationFormHook[];
 }
 const EducationModal = ({
   open,
   handleClose,
   onSubmit,
   educationFormHook,
-  educationFormData,
 }: IEducationModal) => {
   const {
     register,
@@ -54,7 +52,11 @@ const EducationModal = ({
     <Dialog open={open} onClose={handleClose} fullWidth={true}>
       <DialogTitle>Update Personal Details</DialogTitle>
       <DialogContent>
-        <DialogContentText>Please enter all the fields below</DialogContentText>
+        <DialogContentText>
+          {fields.length > 0
+            ? "Please enter all the fields below"
+            : "Click on add Education"}
+        </DialogContentText>
         <form onSubmit={onSubmit}>
           {fields.map((item, index) => (
             <Paper
@@ -174,6 +176,23 @@ const EducationModal = ({
                     )}
                   />
                 </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    autoFocus
+                    {...register(`education.${index}.additionalContent`)}
+                    multiline
+                    rows={4}
+                    error={Boolean(
+                      errors?.education?.[index]?.additionalContent
+                    )}
+                    helperText={
+                      errors?.education?.[index]?.additionalContent?.message
+                    }
+                    label="Additional Content"
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
               </Grid>
               <Button onClick={() => handleRemoveCard(item.id)}>
                 Remove Education
@@ -196,7 +215,7 @@ const EducationModal = ({
             });
           }}
         >
-          Add Data
+          Add Education
         </Button>
         <Button type="submit" onClick={onSubmit}>
           Update details
