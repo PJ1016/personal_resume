@@ -30,7 +30,7 @@ const SummaryDetailsModal = ({
   const { register, watch, setValue } = summaryFormHook;
   const [isLoading, setIsLoading] = useState<boolean>();
   const geminiSecretKey = process.env.REACT_APP_GEMINI_SECRET_KEY;
-  console.log(geminiSecretKey as string);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 

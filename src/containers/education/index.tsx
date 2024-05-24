@@ -60,7 +60,6 @@ const Education = () => {
         onSubmit={onSubmit}
         educationFormHook={educationFormHook}
       />
-      <DevTool control={control} />
     </div>
   );
 };

@@ -31,8 +31,8 @@ const CollegeInfo = ({ formData }: ICollegeInfo) => {
       </Grid>
       <ul>
         {formData.additionalContent?.split("\n").map((item, index) => (
-          <li>
-            <Typography fontSize="0.8rem" fontStyle="italic" key={index}>
+          <li key={`${index}-item`}>
+            <Typography fontSize="0.8rem" fontStyle="italic">
               {item}X
             </Typography>
           </li>
