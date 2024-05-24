@@ -2,30 +2,30 @@ import { Grid, Typography } from "@mui/material";
 import React from "react";
 import type { IEducationFormHook } from ".";
 interface ICollegeInfo {
-  educationFormData: IEducationFormHook;
+  formData: IEducationFormHook;
 }
-const CollegeInfo = ({ educationFormData }: ICollegeInfo) => {
+const CollegeInfo = ({ formData }: ICollegeInfo) => {
   return (
-    <div>
+    <div style={{ marginBottom: "1rem" }}>
       <Grid container>
         <Grid item xs={12} md={6}>
           <Typography fontWeight="bold" fontSize="0.8rem">
-            {educationFormData.collegeName}
+            {formData.collegeName}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography fontSize="0.8rem" fontWeight="bold" textAlign="end">
-            {educationFormData.city}
+            {formData.city}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography fontStyle="italic" fontSize="0.8rem">
-            {educationFormData.course}
+            {formData.course}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography fontSize="0.8rem" fontStyle="italic" textAlign="end">
-            {educationFormData.startDate} - {educationFormData.endDate}
+            {formData.startDate} - {formData.endDate}
           </Typography>
         </Grid>
       </Grid>

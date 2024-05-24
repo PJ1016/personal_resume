@@ -3,7 +3,7 @@ import React from "react";
 import CollegeInfo from "./collegeInfo";
 import type { IEducationFormHook } from ".";
 interface IEducationContent {
-  educationFormData: IEducationFormHook;
+  educationFormData: IEducationFormHook[];
   handleOpen: () => void;
 }
 const EducationContent = ({
@@ -16,7 +16,9 @@ const EducationContent = ({
         Education
       </Typography>
       <Divider sx={{ marginY: ".5rem" }} />
-      <CollegeInfo educationFormData={educationFormData} />
+      {educationFormData.map((data, index) => (
+        <CollegeInfo formData={data} key={`${index}.${data.collegeName}`} />
+      ))}
     </div>
   );
 };

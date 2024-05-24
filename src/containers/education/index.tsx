@@ -1,10 +1,10 @@
-import { Divider, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
 import EducationContent from "./educationContent";
 import EducationModal from "./educationModal";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 export interface IEducationFormHook {
+  id: string;
   collegeName: string;
   city: string;
   course: string;
@@ -12,12 +12,21 @@ export interface IEducationFormHook {
   endDate: string;
 }
 export const educationDefaultValues = {
-  collegeName: "University of Cincinnati, Carl H. Lindner College of Business",
-  city: "Cincinnati, Ohio",
-  course: "Master of Science, Business Analytics",
-  startDate: "August 2021",
-  endDate: "August 2023",
+  education: [
+    {
+      id: "123",
+      collegeName:
+        "University of Cincinnati, Carl H. Lindner College of Business",
+      city: "Cincinnati, Ohio",
+      course: "Master of Science, Business Analytics",
+      startDate: "August 2021",
+      endDate: "August 2023",
+    },
+  ],
 };
+export interface IEducationHookProps {
+  education: IEducationFormHook[];
+}
 const Education = () => {
   const [isEducationModalOpen, setIsEducationModalOpen] =
     useState<boolean>(false);
@@ -27,15 +36,15 @@ const Education = () => {
   const handleOpen = () => {
     setIsEducationModalOpen(true);
   };
-  const educationFormHook = useForm<IEducationFormHook>({
+  const educationFormHook = useForm<IEducationHookProps>({
     defaultValues: educationDefaultValues,
   });
   const { control, handleSubmit } = educationFormHook;
-  const [educationFormData, setEducationFormData] =
-    useState<IEducationFormHook>(educationDefaultValues);
+  const [educationFormData, setEducationFormData] = useState<
+    IEducationFormHook[]
+  >(educationDefaultValues.education);
   const onSubmit = handleSubmit((data) => {
-    console.log(data, "DATA");
-    setEducationFormData(data);
+    setEducationFormData(data.education);
     handleClose();
   });
   return (
@@ -45,6 +54,7 @@ const Education = () => {
         handleOpen={handleOpen}
       />
       <EducationModal
+        educationFormData={educationFormData}
         open={isEducationModalOpen}
         handleClose={handleClose}
         onSubmit={onSubmit}

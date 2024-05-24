@@ -12,152 +12,192 @@ import {
 import React from "react";
 import {
   Controller,
+  useFieldArray,
   type ControllerFieldState,
   type ControllerRenderProps,
-  type FieldValues,
   type UseFormReturn,
   type UseFormStateReturn,
 } from "react-hook-form";
-import type { IEducationFormHook } from ".";
+import type { IEducationFormHook, IEducationHookProps } from ".";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import type { Dayjs } from "dayjs";
 import dayjs from "dayjs";
 interface IEducationModal {
   open: boolean;
   handleClose: (close: boolean) => void;
   onSubmit: any;
-  educationFormHook: UseFormReturn<IEducationFormHook, any, undefined>;
+  educationFormHook: UseFormReturn<IEducationHookProps, any, undefined>;
+  educationFormData: IEducationFormHook[];
 }
 const EducationModal = ({
   open,
   handleClose,
   onSubmit,
   educationFormHook,
+  educationFormData,
 }: IEducationModal) => {
   const {
     register,
     control,
+
     formState: { errors },
   } = educationFormHook;
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "education",
+  });
+  const handleRemoveCard = (id: string) => {
+    const index = fields.findIndex((item) => item.id === id);
+    remove(index);
+  };
+
   return (
     <Dialog open={open} onClose={handleClose} fullWidth={true}>
       <DialogTitle>Update Personal Details</DialogTitle>
       <DialogContent>
         <DialogContentText>Please enter all the fields below</DialogContentText>
         <form onSubmit={onSubmit}>
-          <Paper sx={{ padding: "1rem", marginTop: "1rem" }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} marginTop={1}>
-                <TextField
-                  autoFocus
-                  {...register("collegeName", {
-                    required: {
-                      value: true,
-                      message: "collegeName is required",
-                    },
-                  })}
-                  label="College Name"
-                  error={Boolean(errors.collegeName)}
-                  helperText={errors.collegeName?.message}
-                  fullWidth
-                  variant="standard"
-                />
+          {fields.map((item, index) => (
+            <Paper
+              sx={{ padding: "1rem", marginTop: "1rem" }}
+              key={`${item.collegeName}.${index}`}
+              elevation={5}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12} marginTop={1}>
+                  <TextField
+                    autoFocus
+                    {...register(`education.${index}.collegeName`, {
+                      required: {
+                        value: true,
+                        message: "collegeName is required",
+                      },
+                    })}
+                    label="College Name"
+                    error={Boolean(errors?.education?.[index]?.collegeName)}
+                    helperText={
+                      errors?.education?.[index]?.collegeName?.message
+                    }
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    autoFocus
+                    {...register(`education.${index}.city`, {
+                      required: { value: true, message: "City is required" },
+                    })}
+                    error={Boolean(errors?.education?.[index]?.city)}
+                    helperText={errors?.education?.[index]?.city?.message}
+                    label="City"
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    autoFocus
+                    {...register(`education.${index}.course`, {
+                      required: {
+                        value: true,
+                        message: "Course is required",
+                      },
+                    })}
+                    error={Boolean(errors?.education?.[index]?.course)}
+                    helperText={errors?.education?.[index]?.course?.message}
+                    label="Course"
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Controller
+                    name={`education.${index}.startDate`}
+                    control={control}
+                    render={({
+                      field: { ref, onChange, value, ...field },
+                      fieldState: { error },
+                    }: {
+                      field: ControllerRenderProps<
+                        IEducationHookProps,
+                        `education.${number}.startDate`
+                      >;
+                      fieldState: ControllerFieldState;
+                      formState: UseFormStateReturn<IEducationHookProps>;
+                    }) => (
+                      <DatePicker
+                        {...field}
+                        onChange={(newValue) =>
+                          onChange(
+                            dayjs(newValue).format("MMMM YYYY").toUpperCase()
+                          )
+                        }
+                        label="Start Date"
+                        views={["month", "year"]}
+                        format="MMM-YYYY"
+                        slotProps={{
+                          textField: { variant: "standard" },
+                        }}
+                      />
+                    )}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Controller
+                    name={`education.${index}.endDate`}
+                    control={control}
+                    render={({
+                      field: { ref, onChange, value, ...field },
+                      fieldState: { error },
+                    }: {
+                      field: ControllerRenderProps<
+                        IEducationHookProps,
+                        `education.${number}.endDate`
+                      >;
+                      fieldState: ControllerFieldState;
+                      formState: UseFormStateReturn<IEducationHookProps>;
+                    }) => (
+                      <DatePicker
+                        {...field}
+                        onChange={(newValue) =>
+                          onChange(
+                            dayjs(newValue).format("MMMMM YYYY").toUpperCase()
+                          )
+                        }
+                        label="End Date"
+                        views={["month", "year"]}
+                        format="MMM-YYYY"
+                        slotProps={{
+                          textField: { variant: "standard" },
+                        }}
+                      />
+                    )}
+                  />
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  autoFocus
-                  {...register("city", {
-                    required: { value: true, message: "City is required" },
-                  })}
-                  error={Boolean(errors.city)}
-                  helperText={errors.city?.message}
-                  label="City"
-                  fullWidth
-                  variant="standard"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  autoFocus
-                  {...register("course", {
-                    required: {
-                      value: true,
-                      message: "Course is required",
-                    },
-                  })}
-                  error={Boolean(errors.course)}
-                  helperText={errors.course?.message}
-                  label="Course"
-                  fullWidth
-                  variant="standard"
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Controller
-                  name="startDate"
-                  control={control}
-                  render={({
-                    field: { ref, onChange, value, ...field },
-                    fieldState: { error },
-                  }: {
-                    field: ControllerRenderProps<
-                      IEducationFormHook,
-                      "startDate"
-                    >;
-                    fieldState: ControllerFieldState;
-                    formState: UseFormStateReturn<IEducationFormHook>;
-                  }) => (
-                    <DatePicker
-                      {...field}
-                      onChange={(newValue) =>
-                        onChange(
-                          dayjs(newValue).format("MMMM YYYY").toUpperCase()
-                        )
-                      }
-                      label="Start Date"
-                      views={["month", "year"]}
-                      format="MMM-YYYY"
-                      slotProps={{
-                        textField: { variant: "standard" },
-                      }}
-                    />
-                  )}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Controller
-                  name="endDate"
-                  control={control}
-                  render={({
-                    field: { ref, onChange, value, ...field },
-                    fieldState: { error },
-                  }: {
-                    field: ControllerRenderProps<IEducationFormHook, "endDate">;
-                    fieldState: ControllerFieldState;
-                    formState: UseFormStateReturn<IEducationFormHook>;
-                  }) => (
-                    <DatePicker
-                      {...field}
-                      onChange={(newValue) =>
-                        onChange(
-                          dayjs(newValue).format("MMMMM YYYY").toUpperCase()
-                        )
-                      }
-                      label="End Date"
-                      views={["month", "year"]}
-                      format="MMM-YYYY"
-                      slotProps={{
-                        textField: { variant: "standard" },
-                      }}
-                    />
-                  )}
-                />
-              </Grid>
-            </Grid>
-          </Paper>
+              <Button onClick={() => handleRemoveCard(item.id)}>
+                Remove Education
+              </Button>
+            </Paper>
+          ))}
         </form>
       </DialogContent>
       <DialogActions>
+        <Button
+          onClick={() => {
+            append({
+              id: Math.random().toString(),
+              collegeName:
+                "University of Cincinnati, Carl H. Lindner College of Business",
+              city: "Cincinnati, Ohio",
+              course: "Master of Science, Business Analytics",
+              startDate: "August 2021",
+              endDate: "August 2023",
+            });
+          }}
+        >
+          Add Data
+        </Button>
         <Button type="submit" onClick={onSubmit}>
           Update details
         </Button>
