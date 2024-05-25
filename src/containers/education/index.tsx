@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import EducationContent from "./educationContent";
 import EducationModal from "./educationModal";
 import { useForm } from "react-hook-form";
-export interface IEducationFormHook {
-  id: string;
-  collegeName: string;
-  city: string;
-  course: string;
-  startDate: string;
-  endDate: string;
-  additionalContent?: string;
-}
+import {
+  setEducation,
+  type IEducationState,
+} from "../../store/slices/educationSlice";
+import { useAppDispatch } from "../../store/store";
 export const educationDefaultValues = {
   education: [
     {
@@ -25,9 +21,10 @@ export const educationDefaultValues = {
   ],
 };
 export interface IEducationHookProps {
-  education: IEducationFormHook[];
+  education: IEducationState[];
 }
 const Education = () => {
+  const dispatch = useAppDispatch();
   const [isEducationModalOpen, setIsEducationModalOpen] =
     useState<boolean>(false);
   const handleClose = () => {
@@ -40,19 +37,14 @@ const Education = () => {
     defaultValues: educationDefaultValues,
   });
   const { handleSubmit } = educationFormHook;
-  const [educationFormData, setEducationFormData] = useState<
-    IEducationFormHook[]
-  >(educationDefaultValues.education);
+
   const onSubmit = handleSubmit((data) => {
-    setEducationFormData(data.education);
+    dispatch(setEducation(data.education));
     handleClose();
   });
   return (
     <div>
-      <EducationContent
-        educationFormData={educationFormData}
-        handleOpen={handleOpen}
-      />
+      <EducationContent handleOpen={handleOpen} />
       <EducationModal
         open={isEducationModalOpen}
         handleClose={handleClose}

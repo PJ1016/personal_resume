@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import type { IEducationFormHook } from ".";
+import type { IEducationState } from "../../store/slices/educationSlice";
 interface ICollegeInfo {
-  formData: IEducationFormHook;
+  formData: IEducationState;
 }
 const CollegeInfo = ({ formData }: ICollegeInfo) => {
   return (
