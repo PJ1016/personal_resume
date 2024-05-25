@@ -1,38 +1,30 @@
 import { Box, Divider, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import SummaryDetailsModal from "./summaryDetailsModal";
-import { DevTool } from "@hookform/devtools";
-export interface ISummaryFormValues {
-  primarySkill: string;
-  summary: string;
-  "#exp": string;
-}
-const defaultSummary =
-  "Praveen Jayanth, a seasoned React developer, adeptly crafts robust, user-centric web applications. Proficient in harnessing React's power, he brings creativity and precision to frontend development, ensuring seamless user experiences. With a keen eye for detail and a passion for innovation, Praveen collaborates effectively in dynamic teams, driving projects from conception to execution. Dedicated to staying abreast of emerging technologies, he continuously refines his skills to deliver cutting-edge solutions that exceed expectations.";
-
+import {
+  defaultSumamry,
+  setSummary,
+  type ISummaryState,
+} from "../../store/slices/summarySlice";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 const Summary = () => {
+  const dispatch = useAppDispatch();
   const [openSummaryDetails, setOpenSummaryDetails] = React.useState(false);
   const handleOpen = () => setOpenSummaryDetails(true);
   const handleClose = () => setOpenSummaryDetails(false);
-  const [summaryFormData, setSummaryFormData] = useState<ISummaryFormValues>({
-    primarySkill: "",
-    summary: defaultSummary,
-    "#exp": "",
-  });
-  const summaryFormHook = useForm<ISummaryFormValues>({
+  const { summary } = useAppSelector((state) => state.summary);
+
+  const summaryFormHook = useForm<ISummaryState>({
     defaultValues: {
-      summary: defaultSummary,
+      summary: defaultSumamry,
     },
   });
-  const { handleSubmit, control } = summaryFormHook;
+  const { handleSubmit } = summaryFormHook;
   const onSubmit = handleSubmit((data) => {
-    console.log("data", data);
-    setSummaryFormData(data);
+    dispatch(setSummary(data));
     handleClose();
   });
-  console.log(summaryFormData);
-
   return (
     <Box marginTop={2}>
       <Typography fontWeight="bold" fontSize="1rem">
@@ -40,9 +32,8 @@ const Summary = () => {
       </Typography>
       <Divider sx={{ marginY: ".5rem" }} />
       <div onClick={handleOpen}>
-        <Typography fontSize="0.8rem">{summaryFormData.summary}</Typography>
+        <Typography fontSize="0.8rem">{summary.summary}</Typography>
       </div>
-
       <SummaryDetailsModal
         open={openSummaryDetails}
         handleClose={handleClose}

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import EducationContent from "./educationContent";
 import EducationModal from "./educationModal";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 export interface IEducationFormHook {
   id: string;
   collegeName: string;
@@ -40,7 +39,7 @@ const Education = () => {
   const educationFormHook = useForm<IEducationHookProps>({
     defaultValues: educationDefaultValues,
   });
-  const { control, handleSubmit } = educationFormHook;
+  const { handleSubmit } = educationFormHook;
   const [educationFormData, setEducationFormData] = useState<
     IEducationFormHook[]
   >(educationDefaultValues.education);

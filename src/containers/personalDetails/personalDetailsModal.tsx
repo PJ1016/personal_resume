@@ -10,12 +10,12 @@ import {
 } from "@mui/material";
 import React from "react";
 import type { UseFormReturn } from "react-hook-form";
-import type { PersonalDetailsForm } from ".";
+import type { PersonalDetailState } from "../../store/slices/personalDetailSlice";
 interface IPersonalDetailsModal {
   open: boolean;
   handleClose: (close: boolean) => void;
   onSubmit: any;
-  personalDetailHook: UseFormReturn<PersonalDetailsForm, any, undefined>;
+  personalDetailHook: UseFormReturn<PersonalDetailState, any, undefined>;
 }
 const PersonalDetailsModal = ({
   open,

@@ -1,29 +1,26 @@
 import { Link, Stack, Typography } from "@mui/material";
 import React from "react";
-import type { PersonalDetailsForm } from ".";
+import { useAppSelector } from "../../store/store";
 interface IPersonalDetailsContent {
-  formData: PersonalDetailsForm;
   handleOpen: any;
 }
 
-const PersonalDetailsContent = ({
-  formData,
-  handleOpen,
-}: IPersonalDetailsContent) => {
-  const {
-    firstName,
-    lastName,
-    mobileNumber,
-    emailAddress,
-    address,
-    linkedInAddress,
-  } = formData;
+const PersonalDetailsContent = ({ handleOpen }: IPersonalDetailsContent) => {
   const handleSocialSite = () => {
     window.open(
       "https://www.linkedin.com/in/praveen-jayanth-8b0687199",
       "_blank"
     );
   };
+  const { personalDetail } = useAppSelector((state) => state.personalDetail);
+  const {
+    firstName,
+    address,
+    emailAddress,
+    lastName,
+    linkedInAddress,
+    mobileNumber,
+  } = personalDetail;
   return (
     <div onClick={() => handleOpen()}>
       <Typography textAlign="center" fontWeight="bold" fontSize="2rem">

@@ -11,14 +11,14 @@ import {
 import { LoadingButton } from "@mui/lab";
 import React, { useState } from "react";
 import type { UseFormReturn } from "react-hook-form";
-import type { ISummaryFormValues } from ".";
 import { GenerativeModel } from "@google/generative-ai";
+import type { ISummaryState } from "../../store/slices/summarySlice";
 
 interface ISummaryDetailsModal {
   open: boolean;
   handleClose: () => void;
   onSubmit: any;
-  summaryFormHook: UseFormReturn<ISummaryFormValues, any, undefined>;
+  summaryFormHook: UseFormReturn<ISummaryState, any, undefined>;
 }
 
 const SummaryDetailsModal = ({

@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import type { IWorkExperienceFormData } from ".";
+import type { IWorkExperienceState } from "../../store/slices/workExperienceSlice";
 interface ISpecificCompany {
-  data: IWorkExperienceFormData;
+  data: IWorkExperienceState;
 }
 const SpecificCompany = ({ data }: ISpecificCompany) => {
   return (
