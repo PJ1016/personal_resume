@@ -19,7 +19,6 @@ const summarySlice = createSlice({
   },
   reducers: {
     setSummary: (state, action) => {
-      console.log(action.payload);
       state.summary = action.payload;
     },
   },

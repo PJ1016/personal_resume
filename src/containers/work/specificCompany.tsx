@@ -19,13 +19,10 @@ const SpecificCompany = ({ data }: ISpecificCompany) => {
           </Typography>
         </Grid>
       </Grid>
-      <ul>
-        {data.additionalContent.split("\n").map((item, index) => (
-          <li key={`${index}-item`}>
-            <Typography fontSize="0.8rem">{item}</Typography>
-          </li>
-        ))}
-      </ul>
+      <Typography
+        fontSize="0.8rem"
+        dangerouslySetInnerHTML={{ __html: data.additionalContent }}
+      />
     </Box>
   );
 };

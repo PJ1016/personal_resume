@@ -44,7 +44,6 @@ const Summary = () => {
         onSubmit={onSubmit}
         summaryFormHook={summaryFormHook}
       />
-      <DevTool control={control} />
     </Box>
   );
 };

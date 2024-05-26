@@ -15,7 +15,7 @@ export const defaultWorkSummary: IWorkExperienceState[] = [
     additionalContent: "",
   },
 ];
-const initialState: IWorkExperienceState[] = [
+export const workExperienceInitialData: IWorkExperienceState[] = [
   {
     companyName: "RECEIVABLES MANAGEMENT COMPANY (Client)",
     startDate: "Jan 2022",
@@ -28,7 +28,7 @@ const initialState: IWorkExperienceState[] = [
 const workExperienceSlice = createSlice({
   name: "workExperience",
   initialState: {
-    workExperience: initialState,
+    workExperience: workExperienceInitialData,
   },
   reducers: {
     setWorkExperience: (state, action) => {

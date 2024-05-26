@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import WorkExperienceContent from "./workExperienceContent";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import WorkModal from "./workModal";
 import { useAppDispatch } from "../../store/store";
 import {
@@ -33,7 +32,7 @@ const WorkExperience = () => {
     },
   });
 
-  const { handleSubmit, control } = workExperienceFormHook;
+  const { handleSubmit } = workExperienceFormHook;
   const onSubmit = handleSubmit((data: IWorkExperienceFormHook) => {
     dispatch(setWorkExperience(data.workExperience));
     handleClose();

@@ -95,7 +95,6 @@ const SummaryDetailsModal = ({
                     value={value}
                     preserveWhitespace
                     onChange={(value) => onChange(value)}
-                    onBlur={() => onChange(value.trim())}
                   />
                 )}
               />
@@ -105,7 +104,7 @@ const SummaryDetailsModal = ({
                 size="small"
                 onClick={handleSubmit}
                 loading={isLoading}
-                variant="outlined"
+                variant="contained"
               >
                 Generate Summary
               </LoadingButton>

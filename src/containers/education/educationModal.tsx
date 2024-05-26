@@ -21,6 +21,7 @@ import {
 import type { IEducationHookProps } from ".";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
+import ReactQuill from "react-quill";
 interface IEducationModal {
   open: boolean;
   handleClose: (close: boolean) => void;
@@ -79,6 +80,7 @@ const EducationModal = ({
                     helperText={
                       errors?.education?.[index]?.collegeName?.message
                     }
+                    size="small"
                     fullWidth
                     variant="standard"
                   />
@@ -92,6 +94,7 @@ const EducationModal = ({
                     error={Boolean(errors?.education?.[index]?.city)}
                     helperText={errors?.education?.[index]?.city?.message}
                     label="City"
+                    size="small"
                     fullWidth
                     variant="standard"
                   />
@@ -105,6 +108,7 @@ const EducationModal = ({
                         message: "Course is required",
                       },
                     })}
+                    size="small"
                     error={Boolean(errors?.education?.[index]?.course)}
                     helperText={errors?.education?.[index]?.course?.message}
                     label="Course"
@@ -138,7 +142,7 @@ const EducationModal = ({
                         views={["month", "year"]}
                         format="MMM-YYYY"
                         slotProps={{
-                          textField: { variant: "standard" },
+                          textField: { variant: "standard", size: "small" },
                         }}
                       />
                     )}
@@ -170,31 +174,31 @@ const EducationModal = ({
                         views={["month", "year"]}
                         format="MMM-YYYY"
                         slotProps={{
-                          textField: { variant: "standard" },
+                          textField: { variant: "standard", size: "small" },
                         }}
                       />
                     )}
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField
-                    autoFocus
-                    {...register(`education.${index}.additionalContent`)}
-                    multiline
-                    rows={4}
-                    error={Boolean(
-                      errors?.education?.[index]?.additionalContent
+                  <Controller
+                    name={`education.${index}.additionalContent`}
+                    control={control}
+                    render={({ field: { value, onChange } }: any) => (
+                      <ReactQuill
+                        theme="snow"
+                        value={value}
+                        preserveWhitespace
+                        onChange={(value) => onChange(value)}
+                      />
                     )}
-                    helperText={
-                      errors?.education?.[index]?.additionalContent?.message
-                    }
-                    label="Additional Content"
-                    fullWidth
-                    variant="standard"
                   />
                 </Grid>
               </Grid>
-              <Button onClick={() => handleRemoveCard(item.id)}>
+              <Button
+                onClick={() => handleRemoveCard(item.id)}
+                sx={{ marginTop: "1rem" }}
+              >
                 Remove Education
               </Button>
             </Paper>

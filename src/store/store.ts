@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { summaryReducer } from "./slices/summarySlice";
 import { workExperienceReducer } from "./slices/workExperienceSlice";
 import { educationReducer } from "./slices/educationSlice";
+import { additionalContentReducer } from "./slices/additionalContentSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     summary: summaryReducer,
     workExperience: workExperienceReducer,
     education: educationReducer,
+    additionalContent: additionalContentReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

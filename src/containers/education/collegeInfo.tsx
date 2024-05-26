@@ -29,15 +29,12 @@ const CollegeInfo = ({ formData }: ICollegeInfo) => {
           </Typography>
         </Grid>
       </Grid>
-      <ul>
-        {formData.additionalContent?.split("\n").map((item, index) => (
-          <li key={`${index}-item`}>
-            <Typography fontSize="0.8rem" fontStyle="italic">
-              {item}
-            </Typography>
-          </li>
-        ))}
-      </ul>
+      <Typography
+        fontSize="0.8rem"
+        dangerouslySetInnerHTML={{
+          __html: formData.additionalContent as string,
+        }}
+      />
     </Box>
   );
 };

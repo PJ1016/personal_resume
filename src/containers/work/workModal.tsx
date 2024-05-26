@@ -6,6 +6,7 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
+  InputLabel,
   Paper,
   TextField,
 } from "@mui/material";
@@ -23,6 +24,7 @@ import { DatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { LoadingButton } from "@mui/lab";
 import { GenerativeModel } from "@google/generative-ai";
+import ReactQuill from "react-quill";
 interface IWorkModal {
   open: boolean;
   handleClose: () => void;
@@ -57,7 +59,6 @@ const WorkModal = ({
     remove(index);
   };
   const generateContent = async (index: number) => {
-    console.log(watch(`workExperience.${index}.additionalContent`), "content");
     const client = new GenerativeModel(geminiSecretKey as string, {
       model: "gemini-1.0-pro",
     });
@@ -105,7 +106,8 @@ const WorkModal = ({
                         message: "Company name is required",
                       },
                     })}
-                    label="Comapny Name"
+                    size="small"
+                    label="Company Name"
                     error={Boolean(
                       errors?.workExperience?.[index]?.companyName
                     )}
@@ -143,7 +145,7 @@ const WorkModal = ({
                         views={["month", "year"]}
                         format="MMM-YYYY"
                         slotProps={{
-                          textField: { variant: "standard" },
+                          textField: { variant: "standard", size: "small" },
                         }}
                       />
                     )}
@@ -175,42 +177,39 @@ const WorkModal = ({
                         views={["month", "year"]}
                         format="MMM-YYYY"
                         slotProps={{
-                          textField: { variant: "standard" },
+                          textField: { variant: "standard", size: "small" },
                         }}
                       />
                     )}
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField
-                    autoFocus
-                    {...register(`workExperience.${index}.additionalContent`)}
-                    multiline
-                    rows={4}
-                    error={Boolean(
-                      errors?.workExperience?.[index]?.additionalContent
+                  <Controller
+                    name={`workExperience.${index}.additionalContent`}
+                    control={control}
+                    render={({ field: { value, onChange } }: any) => (
+                      <ReactQuill
+                        theme="snow"
+                        value={value}
+                        preserveWhitespace
+                        onChange={(value) => onChange(value)}
+                        placeholder="Please add your work experience content"
+                      />
                     )}
-                    helperText={
-                      errors?.workExperience?.[index]?.additionalContent
-                        ?.message
-                    }
-                    label="Additional Content"
-                    fullWidth
-                    variant="standard"
                   />
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <LoadingButton
                     onClick={() => generateContent(index)}
                     loading={isLoading}
-                    variant="outlined"
+                    variant="contained"
                   >
                     Generate WE
                   </LoadingButton>
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <Button
-                    variant="outlined"
+                    variant="contained"
                     onClick={() => handleRemoveCard(item.id)}
                   >
                     Remove Work Experience
@@ -232,10 +231,11 @@ const WorkModal = ({
               additionalContent: "",
             });
           }}
+          variant="contained"
         >
           Add Work Experience
         </Button>
-        <Button type="submit" onClick={onSubmit}>
+        <Button type="submit" onClick={onSubmit} variant="contained">
           Update details
         </Button>
       </DialogActions>
