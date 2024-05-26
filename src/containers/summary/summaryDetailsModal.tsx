@@ -10,9 +10,10 @@ import {
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import React, { useState } from "react";
-import type { UseFormReturn } from "react-hook-form";
+import { Controller, type UseFormReturn } from "react-hook-form";
 import { GenerativeModel } from "@google/generative-ai";
 import type { ISummaryState } from "../../store/slices/summarySlice";
+import ReactQuill from "react-quill";
 
 interface ISummaryDetailsModal {
   open: boolean;
@@ -27,7 +28,8 @@ const SummaryDetailsModal = ({
   onSubmit,
   summaryFormHook,
 }: ISummaryDetailsModal) => {
-  const { register, watch, setValue } = summaryFormHook;
+  const { register, watch, setValue, control } = summaryFormHook;
+
   const [isLoading, setIsLoading] = useState<boolean>();
   const geminiSecretKey = process.env.REACT_APP_GEMINI_SECRET_KEY;
 
@@ -84,13 +86,18 @@ const SummaryDetailsModal = ({
               />
             </Grid>
             <Grid item xs={12} md={12}>
-              <TextField
-                autoFocus
-                {...register("summary", {})}
-                label="Summary"
-                multiline
-                fullWidth
-                variant="standard"
+              <Controller
+                name="summary"
+                control={control}
+                render={({ field: { value, onChange } }: any) => (
+                  <ReactQuill
+                    theme="snow"
+                    value={value}
+                    preserveWhitespace
+                    onChange={(value) => onChange(value)}
+                    onBlur={() => onChange(value.trim())}
+                  />
+                )}
               />
             </Grid>
             <Grid item xs={12} md={12}>

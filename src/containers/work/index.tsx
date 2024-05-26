@@ -41,7 +41,6 @@ const WorkExperience = () => {
   return (
     <>
       <WorkExperienceContent handleOpen={handleOpen} />
-      <DevTool control={control} />
       <WorkModal
         open={isWorkModalOpen}
         handleClose={handleClose}

@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./containers/home";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import TextEditor from "./components/textEditor";
 
 function App() {
   const isProduction = process.env.NODE_ENV === "production";
@@ -14,6 +15,10 @@ function App() {
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/textEditor",
+        element: <TextEditor />,
       },
     ],
     { basename }
