@@ -8,6 +8,7 @@ import {
   Grid,
   IconButton,
   Paper,
+  Stack,
   TextField,
 } from "@mui/material";
 import React, { useState } from "react";
@@ -97,23 +98,16 @@ const WorkModal = ({
               key={`${item.id}.${index}`}
               elevation={5}
             >
-              <Grid container spacing={2}>
-                <Grid
-                  item
-                  xs={12}
-                  md={12}
-                  sx={{ textAlign: "end !important", margin: 0 }}
-                  spacing={0}
+              <Stack alignItems="end">
+                <IconButton
+                  color="error"
+                  id="removeCard"
+                  onClick={() => handleRemoveCard(item.id)}
                 >
-                  <NotToPrint>
-                    <IconButton
-                      color="error"
-                      onClick={() => handleRemoveCard(item.id)}
-                    >
-                      <CancelIcon />
-                    </IconButton>
-                  </NotToPrint>
-                </Grid>
+                  <CancelIcon />
+                </IconButton>
+              </Stack>
+              <Grid container spacing={2}>
                 <Grid item xs={12} marginTop={1}>
                   <TextField
                     autoFocus
