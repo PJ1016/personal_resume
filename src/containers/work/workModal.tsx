@@ -6,7 +6,6 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
-  InputLabel,
   Paper,
   TextField,
 } from "@mui/material";
@@ -71,8 +70,7 @@ const WorkModal = ({
       );
       setValue(
         `workExperience.${index}.additionalContent`,
-        (result.response.candidates &&
-          result.response.candidates[0].content.parts[0].text) as string
+        result.response.candidates?.[0].content.parts[0].text as string
       );
     } catch (error) {
       console.error("Error generating text:", error);

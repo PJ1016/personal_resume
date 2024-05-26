@@ -1,8 +1,6 @@
-import { Box } from "@mui/material";
 import React from "react";
 
 import { useAppSelector } from "../../store/store";
-import AdditionalTextReadOnly from "./additionalTextReadOnly";
 import FullContent from "./fullContent";
 
 const AdditionalContent = () => {

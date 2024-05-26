@@ -8,7 +8,6 @@ import {
   type ISummaryState,
 } from "../../store/slices/summarySlice";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { DevTool } from "@hookform/devtools";
 const Summary = () => {
   const dispatch = useAppDispatch();
   const [openSummaryDetails, setOpenSummaryDetails] = React.useState(false);
@@ -21,7 +20,7 @@ const Summary = () => {
       summary: defaultSumamry,
     },
   });
-  const { handleSubmit, control } = summaryFormHook;
+  const { handleSubmit } = summaryFormHook;
   const onSubmit = handleSubmit((data) => {
     dispatch(setSummary(data));
     handleClose();
