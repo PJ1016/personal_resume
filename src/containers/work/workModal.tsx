@@ -6,6 +6,7 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
+  IconButton,
   Paper,
   TextField,
 } from "@mui/material";
@@ -18,12 +19,14 @@ import {
   type UseFormReturn,
   type UseFormStateReturn,
 } from "react-hook-form";
+import CancelIcon from "@mui/icons-material/Cancel";
 import type { IWorkExperienceFormHook } from ".";
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { LoadingButton } from "@mui/lab";
 import { GenerativeModel } from "@google/generative-ai";
 import ReactQuill from "react-quill";
+import { NotToPrint } from "../home";
 interface IWorkModal {
   open: boolean;
   handleClose: () => void;
@@ -95,6 +98,22 @@ const WorkModal = ({
               elevation={5}
             >
               <Grid container spacing={2}>
+                <Grid
+                  item
+                  xs={12}
+                  md={12}
+                  sx={{ textAlign: "end !important", margin: 0 }}
+                  spacing={0}
+                >
+                  <NotToPrint>
+                    <IconButton
+                      color="error"
+                      onClick={() => handleRemoveCard(item.id)}
+                    >
+                      <CancelIcon />
+                    </IconButton>
+                  </NotToPrint>
+                </Grid>
                 <Grid item xs={12} marginTop={1}>
                   <TextField
                     autoFocus
@@ -204,14 +223,6 @@ const WorkModal = ({
                   >
                     Generate WE
                   </LoadingButton>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <Button
-                    variant="contained"
-                    onClick={() => handleRemoveCard(item.id)}
-                  >
-                    Remove Work Experience
-                  </Button>
                 </Grid>
               </Grid>
             </Paper>

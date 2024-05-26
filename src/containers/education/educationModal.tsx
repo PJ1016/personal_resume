@@ -6,10 +6,12 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
+  IconButton,
   Paper,
   TextField,
 } from "@mui/material";
 import React from "react";
+import CancelIcon from "@mui/icons-material/Cancel";
 import {
   Controller,
   useFieldArray,
@@ -22,6 +24,7 @@ import type { IEducationHookProps } from ".";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import ReactQuill from "react-quill";
+import { NotToPrint } from "../home";
 interface IEducationModal {
   open: boolean;
   handleClose: (close: boolean) => void;
@@ -66,6 +69,22 @@ const EducationModal = ({
               elevation={5}
             >
               <Grid container spacing={2}>
+                <Grid
+                  item
+                  xs={12}
+                  md={12}
+                  sx={{ textAlign: "end !important", margin: 0 }}
+                  spacing={0}
+                >
+                  <NotToPrint>
+                    <IconButton
+                      color="error"
+                      onClick={() => handleRemoveCard(item.id)}
+                    >
+                      <CancelIcon />
+                    </IconButton>
+                  </NotToPrint>
+                </Grid>
                 <Grid item xs={12} marginTop={1}>
                   <TextField
                     autoFocus
