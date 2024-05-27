@@ -71,9 +71,11 @@ const CommentSection = () => {
                 <Grid item xs={4}>
                   <Typography fontFamily="monospace">
                     {formatDistanceToNow(
-                      new Date(comment.time_stamp).toUTCString()
+                      new Date(comment.time_stamp).toUTCString(),
+                      {
+                        addSuffix: true,
+                      }
                     )}
-                    ago
                   </Typography>
                 </Grid>
                 <Grid item xs={8}>
