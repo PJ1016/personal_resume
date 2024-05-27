@@ -27,7 +27,6 @@ import dayjs from "dayjs";
 import { LoadingButton } from "@mui/lab";
 import { GenerativeModel } from "@google/generative-ai";
 import ReactQuill from "react-quill";
-import { NotToPrint } from "../home";
 interface IWorkModal {
   open: boolean;
   handleClose: () => void;

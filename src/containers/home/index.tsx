@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import styled from "styled-components";
 import PersonalDetails from "../personalDetails";
 import Summary from "../summary";
@@ -8,6 +8,7 @@ import AdditionalContent from "../additionalContent";
 import { Button, Stack } from "@mui/material";
 import { useAppDispatch } from "../../store/store";
 import { addContent } from "../../store/slices/additionalContentSlice";
+import CommentSection from "../commentSection";
 const HomeWrapper = styled.div`
   border: 1px solid;
   padding: 1rem;
@@ -34,10 +35,9 @@ const Home = () => {
   const downloadContent = () => {
     window.print();
   };
-  const componentRef = useRef<any>();
 
   return (
-    <div ref={componentRef}>
+    <>
       <HomeWrapper>
         <PersonalDetails />
         <Summary />
@@ -45,7 +45,7 @@ const Home = () => {
         <WorkExperience />
         <AdditionalContent />
         <NotToPrint>
-          <Stack direction="row" spacing={3}>
+          <Stack direction="row" spacing={2}>
             <Button variant="contained" onClick={handleAddContent}>
               Add content
             </Button>
@@ -55,7 +55,10 @@ const Home = () => {
           </Stack>
         </NotToPrint>
       </HomeWrapper>
-    </div>
+      <NotToPrint>
+        <CommentSection />
+      </NotToPrint>
+    </>
   );
 };
 
