@@ -148,7 +148,7 @@ const WorkModal = ({
                         {...field}
                         onChange={(newValue) =>
                           onChange(
-                            dayjs(newValue).format("MMMM YYYY").toUpperCase()
+                            dayjs(newValue).format("MMM YYYY").toUpperCase()
                           )
                         }
                         label="Start Date"
@@ -180,7 +180,7 @@ const WorkModal = ({
                         {...field}
                         onChange={(newValue) =>
                           onChange(
-                            dayjs(newValue).format("MMMM YYYY").toUpperCase()
+                            dayjs(newValue).format("MMM YYYY").toUpperCase()
                           )
                         }
                         label="End Date"

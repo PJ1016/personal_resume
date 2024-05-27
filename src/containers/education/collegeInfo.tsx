@@ -31,6 +31,8 @@ const CollegeInfo = ({ formData }: ICollegeInfo) => {
       </Grid>
       <Typography
         fontSize="0.8rem"
+        marginLeft={2}
+        marginTop={2}
         dangerouslySetInnerHTML={{
           __html: formData.additionalContent as string,
         }}

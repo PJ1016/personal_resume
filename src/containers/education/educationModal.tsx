@@ -25,7 +25,6 @@ import type { IEducationHookProps } from ".";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import ReactQuill from "react-quill";
-import { NotToPrint } from "../home";
 interface IEducationModal {
   open: boolean;
   handleClose: (close: boolean) => void;

@@ -22,10 +22,13 @@ const PersonalDetailsContent = ({ handleOpen }: IPersonalDetailsContent) => {
     mobileNumber,
   } = personalDetail;
   return (
-    <div onClick={() => handleOpen()}>
-      <Typography textAlign="center" fontWeight="bold" fontSize="2rem">
-        {firstName} {lastName}
-      </Typography>
+    <>
+      <span onClick={() => handleOpen()}>
+        <Typography textAlign="center" fontWeight="bold" fontSize="2rem">
+          {firstName} {lastName}
+        </Typography>
+      </span>
+
       <Stack
         direction={{ xs: "column", sm: "row", lg: "row" }}
         alignItems="center"
@@ -43,7 +46,7 @@ const PersonalDetailsContent = ({ handleOpen }: IPersonalDetailsContent) => {
           {linkedInAddress}
         </Link>
       </Stack>
-    </div>
+    </>
   );
 };
 

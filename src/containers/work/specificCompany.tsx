@@ -15,7 +15,7 @@ const SpecificCompany = ({ data }: ISpecificCompany) => {
         </Grid>
         <Grid item xs={6} md={6}>
           <Typography fontSize="0.8rem" fontWeight="bold" textAlign="end">
-            {data.startDate}- {data.endDate}
+            {data.startDate}- {data.endDate || "Present"}
           </Typography>
         </Grid>
       </Grid>

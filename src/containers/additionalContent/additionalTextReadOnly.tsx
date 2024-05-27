@@ -36,12 +36,14 @@ const AdditionalTextReadOnly = ({ item, handleOpen }: IAdditionalReadOnly) => {
               </IconButton>
             </NotToPrint>
           </Grid>
+          {item.subHeader ? (
+            <Grid item xs={6} md={6}>
+              <Typography fontWeight="bold" fontSize="0.8rem">
+                {item.subHeader}
+              </Typography>
+            </Grid>
+          ) : null}
 
-          <Grid item xs={6} md={6}>
-            <Typography fontWeight="bold" fontSize="0.8rem">
-              {item.subHeader}
-            </Typography>
-          </Grid>
           {item.startDate ? (
             <Grid item xs={6} md={6}>
               <Typography fontSize="0.8rem" fontWeight="bold" textAlign="end">

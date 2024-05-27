@@ -5,7 +5,7 @@ export interface ISummaryState {
   "#exp": string;
 }
 export const defaultSumamry =
-  "Praveen Jayanth, a seasoned React developer, adeptly crafts robust, user-centric web applications. Proficient in harnessing React's power, he brings creativity and precision to frontend development, ensuring seamless user experiences. With a keen eye for detail and a passion for innovation, Praveen collaborates effectively in dynamic teams, driving projects from conception to execution. Dedicated to staying abreast of emerging technologies, he continuously refines his skills to deliver cutting-edge solutions that exceed expectations.";
+  "Experienced React Developer specializing in high-performance web applications with React and Redux. Skilled in complex UI design, performance optimization, client interaction, team collaboration, and project contribution for multiple clients. Committed to innovation and user-friendly solutions.";
 
 export const initialState: ISummaryState = {
   summary: defaultSumamry,

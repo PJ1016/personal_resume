@@ -11,12 +11,12 @@ export interface IEducationState {
 export const initialState: IEducationState[] = [
   {
     id: "123",
-    collegeName:
-      "University of Cincinnati, Carl H. Lindner College of Business",
+    collegeName: "Rajiv Gandhi University of Knowledge and Technologies",
     city: "Cincinnati, Ohio",
-    course: "Master of Science, Business Analytics",
-    startDate: "August 2021",
-    endDate: "August 2023",
+    course: "Computer Science and Engineering",
+    startDate: "Jun 2017",
+    endDate: "Aug 2021",
+    additionalContent: "<li>Dean’s Excellence Award Recipient</li>",
   },
 ];
 const educationSlice = createSlice({
