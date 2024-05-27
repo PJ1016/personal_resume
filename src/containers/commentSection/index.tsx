@@ -102,7 +102,7 @@ const CommentSection = () => {
           value={value}
           style={{ padding: "1rem" }}
           onChange={(data) => setValue(data)}
-          placeholder="Please add your work experience content"
+          placeholder="Your voice matters! Speak up..."
         />
         <Stack justifyContent="end" direction="row" paddingX="1rem">
           <Button onClick={addComment} disabled={value.length === 0}>

@@ -83,7 +83,7 @@ const WorkModal = ({
   };
   return (
     <Dialog open={open} onClose={handleClose} fullWidth={true}>
-      <DialogTitle>Update Personal Details</DialogTitle>
+      <DialogTitle>Update Work experience</DialogTitle>
       <DialogContent>
         <DialogContentText>
           {fields.length > 0

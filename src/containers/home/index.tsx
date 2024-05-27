@@ -50,7 +50,7 @@ const Home = () => {
               Add content
             </Button>
             <Button variant="contained" onClick={downloadContent}>
-              Download as PDF meghana
+              Download as PDF
             </Button>
           </Stack>
         </NotToPrint>
