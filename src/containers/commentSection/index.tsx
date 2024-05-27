@@ -17,17 +17,13 @@ const CommentSection = () => {
   const [comments, setComments] = useState<IComment[]>(mockComments);
   const [viewComments, setViewComments] = useState(false);
 
-  useEffect(() => {
-    const fetchComments = async () => {
-      const response = await fetch(
-        "https://pj1016.pythonanywhere.com/getComments"
-      );
-      const data = await response.json();
-      setComments(data);
-    };
-
-    fetchComments();
-  }, []);
+  const fetchComments = async () => {
+    const response = await fetch(
+      "https://pj1016.pythonanywhere.com/getComments"
+    );
+    const data = await response.json();
+    setComments(data);
+  };
 
   const addComment = async () => {
     const currentTime = new Date().toISOString(); // Get current time in UTC format
@@ -110,7 +106,14 @@ const CommentSection = () => {
           </Button>
         </Stack>
       </Paper>
-      <Button onClick={() => setViewComments(true)}>View Comments</Button>
+      <Button
+        onClick={() => {
+          fetchComments();
+          setViewComments(true);
+        }}
+      >
+        View Comments
+      </Button>
       {viewComments && renderComments(comments)}
     </Box>
   );
