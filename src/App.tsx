@@ -8,7 +8,7 @@ import DashBaord from "./containers/DashBoard";
 function App() {
   const isProduction = process.env.NODE_ENV === "production";
 
-  const basename = isProduction ? "/personal_resume" : "/";
+  const basename = isProduction ? "/personal_resume/" : "/";
 
   const router = createBrowserRouter(
     [
