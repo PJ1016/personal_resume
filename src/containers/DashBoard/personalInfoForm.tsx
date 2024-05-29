@@ -1,22 +1,20 @@
 import { Grid, InputLabel, TextField } from "@mui/material";
 import React from "react";
 import FormFooter from "./FormFooter";
-import {
-  setPersonalDetail,
-  type PersonalDetailState,
-} from "../../store/slices/personalDetailSlice";
+import { type PersonalDetailState } from "../../store/slices/personalDetailSlice";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useForm } from "react-hook-form";
 import { incrementActiveStep } from "../../store/slices/activeStepperSlice";
+import { addPersonalInfo } from "../../store/slices/resumeSlice";
 const PersonalInfoForm = () => {
   const { activeStep, maxStep } = useAppSelector(
     (state) => state.activeStepper
   );
-  const { personalDetail } = useAppSelector((state) => state.personalDetail);
+  const { personalInfo } = useAppSelector((state) => state.resume);
   const personalDetailHook = useForm<PersonalDetailState>({
-    defaultValues: personalDetail,
+    defaultValues: personalInfo,
   });
-  console.log(personalDetail);
+  console.log(useAppSelector((state) => state.resume));
   const {
     register,
     handleSubmit,
@@ -28,7 +26,7 @@ const PersonalInfoForm = () => {
     if (Object.keys(errors).length === 0) {
       if (activeStep < maxStep) {
         dispatch(incrementActiveStep());
-        dispatch(setPersonalDetail(data));
+        dispatch(addPersonalInfo(data));
       }
     }
   });

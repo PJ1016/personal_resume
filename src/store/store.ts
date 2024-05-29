@@ -7,6 +7,7 @@ import { workExperienceReducer } from "./slices/workExperienceSlice";
 import { educationReducer } from "./slices/educationSlice";
 import { additionalContentReducer } from "./slices/additionalContentSlice";
 import { activeStepperReducer } from "./slices/activeStepperSlice";
+import { resumeReducer } from "./slices/resumeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     education: educationReducer,
     additionalContent: additionalContentReducer,
     activeStepper: activeStepperReducer,
+    resume: resumeReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;
