@@ -16,10 +16,9 @@ function App() {
         path: "/",
         element: <DashBaord />,
       },
-
       {
-        path: "/dashboard",
-        element: <DashBaord />,
+        path: "/home",
+        element: <Home />,
       },
     ],
     { basename }
