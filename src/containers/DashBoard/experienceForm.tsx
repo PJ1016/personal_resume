@@ -4,7 +4,7 @@ import FormFooter from "./FormFooter";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useFieldArray, useForm } from "react-hook-form";
 import { incrementActiveStep } from "../../store/slices/activeStepperSlice";
-import { addPersonalInfo } from "../../store/slices/resumeSlice";
+import { addPersonalInfo, addWorkInfo } from "../../store/slices/resumeSlice";
 import FormHeader from "./FormHeader";
 import {
   defaultExperienceState,
@@ -17,8 +17,10 @@ const ExperienceForm = () => {
   const { activeStep, maxStep } = useAppSelector(
     (state) => state.activeStepper
   );
+  const { experience } = useAppSelector((state) => state.resume);
+
   const workExperienceHook = useForm<IExperienceProps>({
-    defaultValues: { education: defaultExperienceState },
+    defaultValues: { education: experience },
   });
   const {
     register,
@@ -36,7 +38,7 @@ const ExperienceForm = () => {
     if (Object.keys(errors).length === 0) {
       if (activeStep < maxStep) {
         dispatch(incrementActiveStep());
-        dispatch(addPersonalInfo(data));
+        dispatch(addWorkInfo(data.education));
       }
     }
   });
