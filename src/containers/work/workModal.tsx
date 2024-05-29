@@ -20,7 +20,7 @@ import {
   type UseFormReturn,
   type UseFormStateReturn,
 } from "react-hook-form";
-import CancelIcon from "@mui/icons-material/Cancel";
+import CloseIcon from "@mui/icons-material/Close";
 import type { IWorkExperienceFormHook } from ".";
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
@@ -99,11 +99,10 @@ const WorkModal = ({
             >
               <Stack alignItems="end">
                 <IconButton
-                  color="error"
                   id="removeCard"
                   onClick={() => handleRemoveCard(item.id)}
                 >
-                  <CancelIcon />
+                  <CloseIcon />
                 </IconButton>
               </Stack>
               <Grid container spacing={2}>

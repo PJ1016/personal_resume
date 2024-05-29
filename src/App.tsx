@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./containers/home";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import TextEditor from "./components/textEditor";
+import DashBaord from "./containers/DashBoard";
 
 function App() {
   const isProduction = process.env.NODE_ENV === "production";
@@ -16,9 +16,10 @@ function App() {
         path: "/",
         element: <Home />,
       },
+
       {
-        path: "/textEditor",
-        element: <TextEditor />,
+        path: "/dashboard",
+        element: <DashBaord />,
       },
     ],
     { basename }

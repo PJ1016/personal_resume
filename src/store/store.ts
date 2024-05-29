@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { personalDetailReducer } from "./slices/personalDetailSlice";
 import type { TypedUseSelectorHook } from "react-redux";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { summaryReducer } from "./slices/summarySlice";
 import { workExperienceReducer } from "./slices/workExperienceSlice";
 import { educationReducer } from "./slices/educationSlice";
 import { additionalContentReducer } from "./slices/additionalContentSlice";
+import { activeStepperReducer } from "./slices/activeStepperSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +15,7 @@ export const store = configureStore({
     workExperience: workExperienceReducer,
     education: educationReducer,
     additionalContent: additionalContentReducer,
+    activeStepper: activeStepperReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;
