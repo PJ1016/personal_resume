@@ -5,7 +5,7 @@ import Summary from "../summary";
 import Education from "../education";
 import WorkExperience from "../work";
 import AdditionalContent from "../additionalContent";
-import { Button, Stack } from "@mui/material";
+import { Button, Link, Stack } from "@mui/material";
 import { useAppDispatch } from "../../store/store";
 import { addContent } from "../../store/slices/additionalContentSlice";
 import CommentSection from "../commentSection";
@@ -57,6 +57,7 @@ const Home = () => {
       </HomeWrapper>
       <NotToPrint>
         <CommentSection />
+        <Link href="/dashboard">DashBoard</Link>
       </NotToPrint>
     </>
   );
