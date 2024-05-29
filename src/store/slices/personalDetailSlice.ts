@@ -6,7 +6,10 @@ export interface PersonalDetailState {
   mobileNumber: string;
   emailAddress: string;
   address: string;
+  city: string;
   linkedInAddress: string;
+  country: string;
+  zipCode: string;
 }
 export const defaultPersonalDetail = {
   firstName: "",
@@ -14,7 +17,10 @@ export const defaultPersonalDetail = {
   mobileNumber: "",
   emailAddress: "",
   address: "",
+  city: "",
   linkedInAddress: "",
+  country: "",
+  zipCode: "",
 };
 const initialState: PersonalDetailState = {
   firstName: "Praveen Jayanth",
@@ -23,6 +29,9 @@ const initialState: PersonalDetailState = {
   emailAddress: "praveen.jayanth.1111@gmail.com",
   address: "Hyderabad",
   linkedInAddress: "www.linkedin.com/in/praveen-jayanth-8b0687199",
+  city: "Hyderabad",
+  country: "India",
+  zipCode: "",
 };
 export const personalDetailSlice = createSlice({
   name: "personalDetail",

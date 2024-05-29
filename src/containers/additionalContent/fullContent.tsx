@@ -30,7 +30,6 @@ const FullContent = ({ item }: IFullContent) => {
       if (item.id === data.id) return { ...data };
       else return { ...item };
     });
-    console.log(additionalContent, data);
     dispatch(updateContent(updatedData));
     handleClose();
   });
