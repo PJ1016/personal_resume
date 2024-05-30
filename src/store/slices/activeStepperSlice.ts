@@ -13,7 +13,7 @@ interface IActiveStepperSlice {
   maxStep: number;
 }
 const initialState: IActiveStepperSlice = {
-  activeStep: 0,
+  activeStep: 1,
   minStep: 0,
   maxStep: resumeSteps.length - 1,
 };

@@ -19,24 +19,13 @@ export const defaultPersonalDetail = {
   address: "",
   city: "",
   linkedInAddress: "",
-  country: "",
-  zipCode: "",
-};
-const initialState: PersonalDetailState = {
-  firstName: "Praveen Jayanth",
-  lastName: "Kamatham",
-  mobileNumber: "9550737001",
-  emailAddress: "praveen.jayanth.1111@gmail.com",
-  address: "Hyderabad",
-  linkedInAddress: "www.linkedin.com/in/praveen-jayanth-8b0687199",
-  city: "Hyderabad",
   country: "India",
   zipCode: "",
 };
 export const personalDetailSlice = createSlice({
   name: "personalDetail",
   initialState: {
-    personalDetail: initialState,
+    personalDetail: defaultPersonalDetail,
   },
   reducers: {
     setPersonalDetail: (state, action) => {

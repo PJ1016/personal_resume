@@ -3,14 +3,17 @@ import {
   defaultPersonalDetail,
   type PersonalDetailState,
 } from "./personalDetailSlice";
-import type { ExperienceState } from "./experienceSlice";
+import {
+  defaultExperienceState,
+  type ExperienceState,
+} from "./experienceSlice";
 interface IResumeState {
   personalInfo: PersonalDetailState;
   experience: ExperienceState[];
 }
 const initialState: IResumeState = {
   personalInfo: defaultPersonalDetail,
-  experience: [],
+  experience: defaultExperienceState,
 };
 const resumeSlice = createSlice({
   name: "resume",
@@ -20,9 +23,15 @@ const resumeSlice = createSlice({
       state.personalInfo = action.payload;
     },
     addWorkInfo: (state, action) => {
-      state.experience = action.payload;
+      state.experience.push({ ...action.payload, id: Math.random() });
+    },
+    deleteWorkExperience: (state, action) => {
+      state.experience = state.experience.filter(
+        (item) => item.id !== action.payload
+      );
     },
   },
 });
-export const { addPersonalInfo, addWorkInfo } = resumeSlice.actions;
+export const { addPersonalInfo, addWorkInfo, deleteWorkExperience } =
+  resumeSlice.actions;
 export const resumeReducer = resumeSlice.reducer;
