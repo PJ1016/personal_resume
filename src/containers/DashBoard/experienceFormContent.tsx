@@ -1,14 +1,22 @@
 import {
   Autocomplete,
   Box,
+  Checkbox,
+  FormControlLabel,
   Grid,
   IconButton,
   InputLabel,
   TextField,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useAppDispatch } from "../../store/store";
-import { useForm } from "react-hook-form";
+import {
+  Controller,
+  useForm,
+  type ControllerFieldState,
+  type ControllerRenderProps,
+  type UseFormStateReturn,
+} from "react-hook-form";
 import SaveIcon from "@mui/icons-material/Save";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
@@ -17,6 +25,9 @@ import {
 } from "../../store/slices/experienceSlice";
 import { addWorkInfo } from "../../store/slices/resumeSlice";
 import { MAJOR_CITIES } from "../../constants/cities";
+import { DatePicker } from "@mui/x-date-pickers";
+import dayjs from "dayjs";
+import { DevTool } from "@hookform/devtools";
 
 const ExperienceFormContent = ({ deleteExperience, id }: any) => {
   const workExperienceHook = useForm<ExperienceState>({
@@ -27,6 +38,8 @@ const ExperienceFormContent = ({ deleteExperience, id }: any) => {
     register,
     handleSubmit,
     setValue,
+    reset,
+    control,
     watch,
     formState: { errors },
   } = workExperienceHook;
@@ -37,7 +50,7 @@ const ExperienceFormContent = ({ deleteExperience, id }: any) => {
     dispatch(addWorkInfo(data));
     deleteExperience(id);
   });
-
+  const [presentCheckBox, setPresentCheckBox] = useState(false);
   return (
     <form onSubmit={onSubmit}>
       <Grid container marginTop={2} alignItems="center">
@@ -118,6 +131,108 @@ const ExperienceFormContent = ({ deleteExperience, id }: any) => {
                 fullWidth
               />
             </Grid>
+            <Grid item xs={12} md={6}>
+              <InputLabel htmlFor="outlined-adornment-startDate">
+                Start Date
+              </InputLabel>
+              <Controller
+                name="startDate"
+                rules={{
+                  required: { value: true, message: "Start Date is Required" },
+                }}
+                control={control}
+                render={({
+                  field: { ref, onChange, value, ...field },
+                }: {
+                  field: ControllerRenderProps<ExperienceState, `startDate`>;
+                  fieldState: ControllerFieldState;
+                  formState: UseFormStateReturn<ExperienceState>;
+                }) => (
+                  <DatePicker
+                    {...field}
+                    onChange={(newValue) =>
+                      onChange(dayjs(newValue).format("MMM YYYY"))
+                    }
+                    value={value ? dayjs(value, "MMM YYYY") : null}
+                    views={["month", "year"]}
+                    format="MMM-YYYY"
+                    slotProps={{
+                      textField: {
+                        size: "small",
+                        error: Boolean(errors?.startDate),
+                        helperText: errors?.startDate?.message,
+                        fullWidth: true,
+                      },
+                      field: {
+                        clearable: true,
+                        onClear: () => reset({ endDate: "" }),
+                      },
+                    }}
+                  />
+                )}
+              />
+            </Grid>
+            <Grid item xs={12} md={6} alignItems="center">
+              <InputLabel htmlFor="outlined-adornment-endDate">
+                End Date
+              </InputLabel>
+              <Controller
+                name="endDate"
+                rules={{
+                  required: { value: true, message: "End Date is Required" },
+                }}
+                control={control}
+                render={({
+                  field: { ref, onChange, value, ...field },
+                  fieldState: { error },
+                }: {
+                  field: ControllerRenderProps<ExperienceState, `endDate`>;
+                  fieldState: ControllerFieldState;
+                  formState: UseFormStateReturn<ExperienceState>;
+                }) => (
+                  <DatePicker
+                    {...field}
+                    onChange={(newValue) =>
+                      onChange(dayjs(newValue).format("MMM YYYY"))
+                    }
+                    value={value ? dayjs(value, "MMM YYYY") : null}
+                    views={["month", "year"]}
+                    format="MMM-YYYY"
+                    disabled={presentCheckBox}
+                    slotProps={{
+                      textField: {
+                        size: "small",
+                        error: Boolean(error),
+                        helperText: errors?.endDate?.message,
+                        fullWidth: true,
+                      },
+                      field: {
+                        clearable: true,
+                        onClear: () => reset({ endDate: "" }),
+                      },
+                    }}
+                  />
+                )}
+              />
+
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value={presentCheckBox}
+                    onChange={() => {
+                      setPresentCheckBox(!presentCheckBox);
+                      setValue("endDate", "Present");
+                    }}
+                    size="small"
+                  />
+                }
+                label={
+                  <InputLabel htmlFor="outlined-adornment-endDate">
+                    I Presently work here
+                  </InputLabel>
+                }
+              />
+            </Grid>
           </Grid>
         </Grid>
         <Grid item md={4}>
@@ -136,6 +251,7 @@ const ExperienceFormContent = ({ deleteExperience, id }: any) => {
           </Box>
         </Grid>
       </Grid>
+      <DevTool control={control} />
     </form>
   );
 };
