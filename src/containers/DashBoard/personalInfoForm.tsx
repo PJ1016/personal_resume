@@ -23,6 +23,7 @@ const PersonalInfoForm = () => {
     handleSubmit,
     control,
     setValue,
+    watch,
     formState: { errors },
   } = personalDetailHook;
   const dispatch = useAppDispatch();
@@ -108,6 +109,7 @@ const PersonalInfoForm = () => {
                   onChange={(_, newValue) => {
                     setValue("city", newValue as string);
                   }}
+                  value={watch("city")}
                   renderInput={(params) => (
                     <TextField
                       {...params}

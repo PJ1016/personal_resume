@@ -23,7 +23,10 @@ const resumeSlice = createSlice({
       state.personalInfo = action.payload;
     },
     addWorkInfo: (state, action) => {
-      state.experience.push({ ...action.payload, id: Math.random() });
+      state.experience.push({
+        ...action.payload,
+        id: Math.random().toString(),
+      });
     },
     deleteWorkExperience: (state, action) => {
       state.experience = state.experience.filter(

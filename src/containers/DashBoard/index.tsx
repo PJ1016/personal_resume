@@ -1,6 +1,5 @@
 import React from "react";
 import HeaderMenu from "../../components/menu";
-import { Typography } from "@mui/material";
 
 import PersonalInfoForm from "./personalInfoForm";
 import { useAppSelector } from "../../store/store";
