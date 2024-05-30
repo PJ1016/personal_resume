@@ -28,6 +28,9 @@ import { MAJOR_CITIES } from "../../constants/cities";
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { DevTool } from "@hookform/devtools";
+import ReactQuill from "react-quill";
+import { LoadingButton } from "@mui/lab";
+import { GenerativeModel } from "@google/generative-ai";
 
 const ExperienceFormContent = ({ deleteExperience, id }: any) => {
   const workExperienceHook = useForm<ExperienceState>({
@@ -50,10 +53,34 @@ const ExperienceFormContent = ({ deleteExperience, id }: any) => {
     dispatch(addWorkInfo(data));
     deleteExperience(id);
   });
+  const geminiSecretKey = process.env.REACT_APP_GEMINI_SECRET_KEY;
+  const [isLoading, setIsLoading] = useState(false);
+  const GenerateText = async (e: any) => {
+    e.preventDefault();
+
+    const client = new GenerativeModel(geminiSecretKey as string, {
+      model: "gemini-1.0-pro",
+    });
+    try {
+      setIsLoading(true);
+      const result = await client.generateContent(
+        `Can you generate the responsibilities for a position as ${watch("jobTitle")} at ${watch("employer")}, focusing on the primary skill ${watch("primarySkill") || "React"}? Please return the content as HTML tags, using elements such as <b>, <i>, and <li>.`
+      );
+      setValue(
+        "jobDescription",
+        (result.response.candidates &&
+          result.response.candidates[0].content.parts[0].text) as string
+      );
+    } catch (error) {
+      console.error("Error generating text:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const [presentCheckBox, setPresentCheckBox] = useState(false);
   return (
     <form onSubmit={onSubmit}>
-      <Grid container marginTop={2} alignItems="center">
+      <Grid container marginTop={2} alignItems="center" spacing={2}>
         <Grid item md={8}>
           <Grid container spacing={1}>
             <Grid item xs={12} md={6}>
@@ -220,7 +247,7 @@ const ExperienceFormContent = ({ deleteExperience, id }: any) => {
                   <Checkbox
                     value={presentCheckBox}
                     onChange={() => {
-                      setPresentCheckBox(!presentCheckBox);
+                      setPresentCheckBox((prev) => !prev);
                       setValue("endDate", "Present");
                     }}
                     size="small"
@@ -249,6 +276,51 @@ const ExperienceFormContent = ({ deleteExperience, id }: any) => {
               <SaveIcon />
             </IconButton>
           </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <InputLabel htmlFor="outlined-adornment-endDate">
+            Job Description
+          </InputLabel>
+          <Controller
+            name="jobDescription"
+            control={control}
+            render={({ field: { value, onChange } }: any) => (
+              <ReactQuill
+                theme="snow"
+                value={value}
+                preserveWhitespace
+                onChange={(value) => onChange(value)}
+              />
+            )}
+          />
+        </Grid>
+        <Grid item xs={12} md={6} spacing={2}>
+          <InputLabel htmlFor="outlined-adornment-endDate">
+            Choose your career field and sub-field to find relevant pre-written
+            examples.
+          </InputLabel>
+          <Grid item xs={12} md={6}>
+            <InputLabel htmlFor="outlined-adornment-endDate">
+              Primary Skill
+            </InputLabel>
+            <TextField
+              autoFocus
+              {...register("primarySkill")}
+              fullWidth
+              size="small"
+            />
+          </Grid>
+          <Grid item xs={12} md={12}>
+            <LoadingButton
+              size="small"
+              onClick={GenerateText}
+              loading={isLoading}
+              variant="contained"
+              sx={{ marginTop: "1rem" }}
+            >
+              Generate Summary
+            </LoadingButton>
+          </Grid>
         </Grid>
       </Grid>
       <DevTool control={control} />

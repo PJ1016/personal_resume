@@ -7,7 +7,6 @@ import {
 import { useForm } from "react-hook-form";
 import AdditionalContentModal from "./additionalContentModal";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { DevTool } from "@hookform/devtools";
 interface IFullContent {
   item: IContent;
 }
@@ -19,7 +18,7 @@ const FullContent = ({ item }: IFullContent) => {
   const { additionalContent } = useAppSelector(
     (state) => state.additionalContent
   );
-  const { handleSubmit, control } = additionalContentForm;
+  const { handleSubmit } = additionalContentForm;
 
   const [openAdditionalContentDetails, setOpenAdditionalContentDetails] =
     React.useState(false);
@@ -42,7 +41,6 @@ const FullContent = ({ item }: IFullContent) => {
         onSubmit={onSubmit}
         additionalFormHook={additionalContentForm}
       />
-      <DevTool control={control} />
     </>
   );
 };

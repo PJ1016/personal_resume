@@ -7,6 +7,7 @@ export interface ExperienceState {
   startDate: string;
   endDate: string;
   jobDescription: string;
+  primarySkill: string;
 }
 export const defaultExperience: ExperienceState = {
   id: "",
@@ -17,5 +18,6 @@ export const defaultExperience: ExperienceState = {
   startDate: "",
   endDate: "",
   jobDescription: "",
+  primarySkill: "",
 };
 export const defaultExperienceState: ExperienceState[] = [];

@@ -116,7 +116,7 @@ const AdditionalContentModal = ({
               />
             </Grid>
 
-            <Grid item xs={12} md={12}>
+            <Grid item xs={12} md={12} minHeight="200px">
               <Controller
                 name="content"
                 control={control}

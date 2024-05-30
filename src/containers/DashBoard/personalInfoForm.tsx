@@ -8,7 +8,6 @@ import { incrementActiveStep } from "../../store/slices/activeStepperSlice";
 import { addPersonalInfo } from "../../store/slices/resumeSlice";
 import FormHeader from "./FormHeader";
 import { MAJOR_CITIES } from "../../constants/cities";
-import { DevTool } from "@hookform/devtools";
 import { COUNTRIES } from "../../constants/countries";
 const PersonalInfoForm = () => {
   const { activeStep, maxStep } = useAppSelector(
@@ -21,7 +20,6 @@ const PersonalInfoForm = () => {
   const {
     register,
     handleSubmit,
-    control,
     setValue,
     watch,
     formState: { errors },
@@ -226,7 +224,6 @@ const PersonalInfoForm = () => {
             </Grid>
           </Grid>
         </Grid>
-        <DevTool control={control} />
       </form>
     </>
   );
