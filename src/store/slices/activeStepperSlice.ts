@@ -32,8 +32,11 @@ const activeStepperSlice = createSlice({
         state.activeStep = state.activeStep - 1;
       }
     },
+    updateActiveStep(state, action) {
+      state.activeStep = action.payload;
+    },
   },
 });
-export const { incrementActiveStep, decrementActiveStep } =
+export const { incrementActiveStep, decrementActiveStep, updateActiveStep } =
   activeStepperSlice.actions;
 export const activeStepperReducer = activeStepperSlice.reducer;

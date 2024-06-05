@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-import type { IWorkExperienceState } from "../../store/slices/workExperienceSlice";
+import type { ExperienceState } from "../../store/slices/experienceSlice";
 interface ISpecificCompany {
-  data: IWorkExperienceState;
+  data: ExperienceState;
 }
 const SpecificCompany = ({ data }: ISpecificCompany) => {
   return (
@@ -10,7 +10,7 @@ const SpecificCompany = ({ data }: ISpecificCompany) => {
       <Grid container>
         <Grid item xs={6} md={6}>
           <Typography fontWeight="bold" fontSize="0.8rem">
-            {data.companyName}
+            {data.employer}
           </Typography>
         </Grid>
         <Grid item xs={6} md={6}>
@@ -21,7 +21,7 @@ const SpecificCompany = ({ data }: ISpecificCompany) => {
       </Grid>
       <Typography
         fontSize="0.8rem"
-        dangerouslySetInnerHTML={{ __html: data.additionalContent }}
+        dangerouslySetInnerHTML={{ __html: data.jobDescription }}
       />
     </Box>
   );

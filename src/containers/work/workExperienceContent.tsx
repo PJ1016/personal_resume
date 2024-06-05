@@ -7,13 +7,14 @@ interface IWorkExperienceContent {
 }
 const WorkExperienceContent = ({ handleOpen }: IWorkExperienceContent) => {
   const { workExperience } = useAppSelector((state) => state.workExperience);
+  const { experience } = useAppSelector((state) => state.resume);
   return (
     <div style={{ marginTop: "1rem" }} onClick={() => handleOpen()}>
       <Typography fontWeight="bold" fontSize="1rem">
         Work Experience
       </Typography>
       <Divider sx={{ marginY: ".5rem" }} />
-      {workExperience.map((item, index) => (
+      {experience.map((item, index) => (
         <SpecificCompany data={item} key={index} />
       ))}
     </div>

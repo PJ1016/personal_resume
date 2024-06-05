@@ -31,7 +31,9 @@ import { DevTool } from "@hookform/devtools";
 import ReactQuill from "react-quill";
 import { LoadingButton } from "@mui/lab";
 import { GenerativeModel } from "@google/generative-ai";
-
+export const cleanHtmlContent = (htmlContent: string) => {
+  return htmlContent.replace(/\n\s*/g, "");
+};
 const ExperienceFormContent = ({ deleteExperience, id }: any) => {
   const workExperienceHook = useForm<ExperienceState>({
     defaultValues: defaultExperience,
@@ -64,12 +66,14 @@ const ExperienceFormContent = ({ deleteExperience, id }: any) => {
     try {
       setIsLoading(true);
       const result = await client.generateContent(
-        `Can you generate the responsibilities for a position as ${watch("jobTitle")} at ${watch("employer")}, focusing on the primary skill ${watch("primarySkill") || "React"}? Please return the content as HTML tags, using elements such as <b>, <i>, and <li>.`
+        `Can you outline the responsibilities with the primary skill ${watch("primarySkill") || "React"}? Please format the content as bullet points using HTML tags.`
       );
       setValue(
         "jobDescription",
         (result.response.candidates &&
-          result.response.candidates[0].content.parts[0].text) as string
+          cleanHtmlContent(
+            result.response.candidates[0].content.parts[0].text as string
+          )) as string
       );
     } catch (error) {
       console.error("Error generating text:", error);
