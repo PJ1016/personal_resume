@@ -1,37 +1,40 @@
 import React from "react";
-import PersonalDetailsContent from "./personalDetailsContent";
-import PersonalDetailsModal from "./personalDetailsModal";
-import { useForm } from "react-hook-form";
-import { useAppDispatch } from "../../store/store";
-import {
-  defaultPersonalDetail,
-  setPersonalDetail,
-  type PersonalDetailState,
-} from "../../store/slices/personalDetailSlice";
+import { useAppSelector } from "../../store/store";
+import { Link, Stack, Typography } from "@mui/material";
 
 const PersonalDetails = () => {
-  const [openPersonalDetails, setOpenPersonalDetails] = React.useState(false);
-  const handleOpen = () => setOpenPersonalDetails(true);
-  const handleClose = () => setOpenPersonalDetails(false);
-  const dispatch = useAppDispatch();
-  const personalDetailHook = useForm<PersonalDetailState>({
-    defaultValues: defaultPersonalDetail,
-  });
-  const { handleSubmit } = personalDetailHook;
-
-  const onSubmit = handleSubmit((data) => {
-    dispatch(setPersonalDetail(data));
-    handleClose();
-  });
+  const handleSocialSite = () => {
+    window.open(
+      "https://www.linkedin.com/in/praveen-jayanth-8b0687199",
+      "_blank"
+    );
+  };
+  const { personalDetail } = useAppSelector((state) => state.personalDetail);
+  const { linkedInAddress } = personalDetail;
+  const { personalInfo } = useAppSelector((state) => state.resume);
   return (
     <>
-      <PersonalDetailsContent handleOpen={handleOpen} />
-      <PersonalDetailsModal
-        open={openPersonalDetails}
-        handleClose={handleClose}
-        onSubmit={onSubmit}
-        personalDetailHook={personalDetailHook}
-      />
+      <Typography textAlign="center" fontWeight="bold" fontSize="2rem">
+        {personalInfo.firstName} {personalInfo.lastName}
+      </Typography>
+
+      <Stack
+        direction={{ xs: "column", sm: "row", lg: "row" }}
+        alignItems="center"
+        justifyContent="center"
+        spacing={1}
+      >
+        <Typography fontSize="0.8rem">{personalInfo.mobileNumber}</Typography>
+        <Typography fontSize="0.8rem">{personalInfo.emailAddress}</Typography>
+        <Typography fontSize="0.8rem">{personalInfo.city}</Typography>
+        <Link
+          fontSize="0.8rem"
+          component="button"
+          onClick={() => handleSocialSite()}
+        >
+          {linkedInAddress}
+        </Link>
+      </Stack>
     </>
   );
 };

@@ -5,10 +5,9 @@ import Summary from "../summary";
 import Education from "../education";
 import WorkExperience from "../work";
 import AdditionalContent from "../additionalContent";
-import { Button, Link, Stack } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import { useAppDispatch } from "../../store/store";
 import { addContent } from "../../store/slices/additionalContentSlice";
-import CommentSection from "../commentSection";
 const HomeWrapper = styled.div`
   border: 1px solid;
   padding: 1rem;
@@ -55,10 +54,10 @@ const Home = () => {
           </Stack>
         </NotToPrint>
       </HomeWrapper>
-      <NotToPrint>
+      {/* <NotToPrint>
         <CommentSection />
         <Link href="/dashboard">DashBoard</Link>
-      </NotToPrint>
+      </NotToPrint> */}
     </>
   );
 };

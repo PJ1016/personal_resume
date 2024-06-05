@@ -3,8 +3,8 @@ import HeaderMenu from "../../components/menu";
 
 import PersonalInfoForm from "./personalInfoForm";
 import { useAppSelector } from "../../store/store";
-import FormFooter from "./FormFooter";
 import ExperienceForm from "./experienceForm";
+import Home, { NotToPrint } from "../home";
 
 const DashBaord = () => {
   const { activeStep } = useAppSelector((state) => state.activeStepper);
@@ -18,14 +18,17 @@ const DashBaord = () => {
       default:
         return (
           <div>
-            Yet to be implemented <FormFooter />
+            <Home />
           </div>
         );
     }
   };
   return (
     <div>
-      <HeaderMenu />
+      <NotToPrint>
+        <HeaderMenu />
+      </NotToPrint>
+
       <div style={{ padding: "2rem" }}>{renderFormOnStep()}</div>
     </div>
   );
