@@ -27,7 +27,11 @@ const DashBaord = () => {
   return (
     <div>
       <NotToPrint>
-        <Alert severity="warning">Work is still in progress.</Alert>
+        <Alert severity="info">
+          "Hey there! We're in the midst of creating something awesome. While we
+          put the finishing touches, feel free to explore what's already here.
+          Stay tuned for more updates!".
+        </Alert>
         <HeaderMenu />
       </NotToPrint>
 

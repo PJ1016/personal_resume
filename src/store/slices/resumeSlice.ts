@@ -65,7 +65,7 @@ const initialState: IResumeState = {
   <li>Enthusiastic about enhancing user experience and interface design, and eager to implement innovative solutions in collaboration with cross-functional teams. Outside of work, I enjoy playing and watching cricket.</li>
 </ul>`,
       id: "3",
-      title: "Intrests",
+      title: "Interests",
       subHeader: "",
       startDate: "",
       endDate: "",

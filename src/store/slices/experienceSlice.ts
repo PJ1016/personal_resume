@@ -18,15 +18,14 @@ export const defaultExperience: ExperienceState = {
   startDate: "OCT 2021",
   endDate: "PRESENT",
   jobDescription: `
-      <ul>
-        <li>Led code reviews to ensure top-notch code quality and fostered team collaboration.</li>
-        <li>Designed and developed UI components, enhancing user engagement by 25%.</li>
-        <li>Enhanced Allstate's Employee Portal for streamlined beneficiary updates, ensuring universal access to coverage information for over 10,000 users.</li>
-        <li>Engineered functionalities for claim management, processing over 500 claims monthly for various insurance types.</li>
-        <li>Integrated authentication via OKTA for seamless configuration across multiple environments.</li>
-        <li>Utilized Jenkins for continuous integration, Git for version control, and JIRA for project management, alongside ES Lint for code quality checks.</li>
-        <li>Contributed to improving code coverage and resolving defects, resulting in an 80% reduction in Sonar issues.</li>
-      </ul>
+     <ul>
+  <li><strong>Code Reviews and Team Collaboration:</strong> Led code reviews and team collaboration, improving code quality and reducing issues by 30%, and utilized Jenkins, Git, JIRA, and ES Lint for continuous integration and project management.</li>
+  <li><strong>UI Component Design and Development:</strong> Designed and developed UI components with React and Angular, boosting user engagement by 25%, and enhanced Allstate's Employee Portal for over 10,000 users, improving satisfaction by 40%.</li>
+  <li><strong>Claim Management Functionality and OKTA Integration:</strong> Engineered claim management functionalities, processing over 500 claims monthly and improving efficiency by 20%, and integrated OKTA for secure, seamless authentication across environments.</li>
+  <li><strong>Code Quality and Defect Resolution:</strong> Contributed to code quality and defect resolution, achieving an 80% reduction in Sonar issues through improved code coverage and defect resolution strategies.</li>
+</ul>
+
+
 `,
   primarySkill: "",
 };
