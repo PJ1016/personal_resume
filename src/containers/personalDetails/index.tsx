@@ -9,28 +9,28 @@ const PersonalDetails = () => {
       "_blank"
     );
   };
-  const { personalDetail } = useAppSelector((state) => state.personalDetail);
-  const { linkedInAddress } = personalDetail;
+  const linkedInAddress = "linkedin.com/in/praveen-jayanth-8b0687199";
   const { personalInfo } = useAppSelector((state) => state.resume);
+  const content = [
+    personalInfo.mobileNumber,
+    personalInfo.emailAddress,
+    personalInfo.city,
+  ];
+
+  const formattedContent = content.join(" • ");
   return (
     <>
-      <Typography textAlign="center" fontWeight="bold" fontSize="2rem">
+      <Typography variant="h6" textAlign="center" fontWeight="bold">
         {personalInfo.firstName} {personalInfo.lastName}
       </Typography>
 
-      <Stack
-        direction={{ xs: "column", sm: "row", lg: "row" }}
-        alignItems="center"
-        justifyContent="center"
-        spacing={1}
-      >
-        <Typography fontSize="0.8rem">{personalInfo.mobileNumber}</Typography>
-        <Typography fontSize="0.8rem">{personalInfo.emailAddress}</Typography>
-        <Typography fontSize="0.8rem">{personalInfo.city}</Typography>
+      <Stack alignItems="center" spacing={1}>
+        <Typography fontSize="12px">{formattedContent}</Typography>
         <Link
-          fontSize="0.8rem"
+          fontSize="12px"
           component="button"
           onClick={() => handleSocialSite()}
+          lineHeight="0"
         >
           {linkedInAddress}
         </Link>

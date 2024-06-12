@@ -26,11 +26,9 @@ const Summary = () => {
     handleClose();
   });
   return (
-    <Box marginTop={2}>
-      <Typography fontWeight="bold" fontSize="1rem">
-        Summary
-      </Typography>
-      <Divider sx={{ marginY: ".5rem" }} />
+    <Box marginY={1}>
+      <Typography fontWeight="bold">Summary</Typography>
+      <Divider sx={{ marginY: "3px" }} />
       <div onClick={handleOpen}>
         <Typography
           fontSize="0.8rem"

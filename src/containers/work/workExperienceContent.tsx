@@ -6,7 +6,6 @@ interface IWorkExperienceContent {
   handleOpen: () => void;
 }
 const WorkExperienceContent = ({ handleOpen }: IWorkExperienceContent) => {
-  const { workExperience } = useAppSelector((state) => state.workExperience);
   const { experience } = useAppSelector((state) => state.resume);
   return (
     <div style={{ marginTop: "1rem" }} onClick={() => handleOpen()}>

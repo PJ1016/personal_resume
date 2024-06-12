@@ -6,15 +6,34 @@ import "react-quill/dist/quill.snow.css";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { store } from "./store/store";
+import { createTheme, ThemeProvider } from "@mui/material";
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+const theme = createTheme({
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          body1: {
+            "@media print": {
+              fontSize: "12px", // Example: Reduce font size for print
+              color: "black", // Example: Change color for print
+            },
+          },
+        },
+      },
+    },
+  },
+});
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </QueryClientProvider>
     </Provider>
   </React.StrictMode>
