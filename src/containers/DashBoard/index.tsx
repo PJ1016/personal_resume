@@ -5,6 +5,7 @@ import PersonalInfoForm from "./personalInfoForm";
 import { useAppSelector } from "../../store/store";
 import ExperienceForm from "./experienceForm";
 import Home, { NotToPrint } from "../home";
+import { Alert } from "@mui/material";
 
 const DashBaord = () => {
   const { activeStep } = useAppSelector((state) => state.activeStepper);
@@ -26,6 +27,7 @@ const DashBaord = () => {
   return (
     <div>
       <NotToPrint>
+        <Alert severity="warning">Work is still in progress.</Alert>
         <HeaderMenu />
       </NotToPrint>
 
