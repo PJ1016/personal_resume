@@ -26,7 +26,7 @@ const Summary = () => {
     handleClose();
   });
   return (
-    <Box marginY={1}>
+    <Box marginY={2}>
       <Typography fontWeight="bold">Summary</Typography>
       <Divider sx={{ marginY: "3px" }} />
       <div onClick={handleOpen}>

@@ -1,41 +1,48 @@
-import { Box, Divider, Grid, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Grid,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import {
-  updateContent,
-  type IContent,
-} from "../../store/slices/additionalContentSlice";
+
 import { NotToPrint } from "../home";
+import { updateContent } from "../../store/slices/resumeSlice";
+import type { IContent } from "../../store/slices/additionalContentSlice";
 interface IAdditionalReadOnly {
   item: IContent;
   handleOpen: () => void;
 }
 const AdditionalTextReadOnly = ({ item, handleOpen }: IAdditionalReadOnly) => {
   const dispatch = useAppDispatch();
-  const { additionalContent } = useAppSelector(
-    (state) => state.additionalContent
-  );
+  const { additionalContent } = useAppSelector((state) => state.resume);
   const removeSection = (id: string) => {
-    const data = additionalContent.filter((item) => item.id !== id);
+    const data = additionalContent.filter((item) => {
+      return item.id != id;
+    });
+    console.log(data);
+
     dispatch(updateContent(data));
   };
   return (
-    <div onClick={handleOpen} style={{ marginTop: "1rem" }}>
-      <Typography fontWeight="bold" fontSize="1rem">
-        {item.title}
-      </Typography>
-      <Divider sx={{ marginY: ".5rem" }} />
-      <Box style={{ marginBottom: "1rem" }}>
+    <div>
+      <Stack direction="row" alignItems="center" justifyContent="space-between">
+        <Typography fontWeight="bold">{item.title}</Typography>
+        <NotToPrint>
+          <IconButton onClick={() => removeSection(item.id)}>
+            <CancelIcon />
+          </IconButton>
+        </NotToPrint>
+      </Stack>
+      <Divider sx={{ marginY: "3px" }} />
+
+      <Box onClick={handleOpen}>
         <Grid container>
-          <Grid item xs={12} md={12} sx={{ textAlign: "end !important" }}>
-            <NotToPrint>
-              <IconButton color="error" onClick={() => removeSection(item.id)}>
-                <CancelIcon />
-              </IconButton>
-            </NotToPrint>
-          </Grid>
           {item.subHeader ? (
             <Grid item xs={6} md={6}>
               <Typography fontWeight="bold" fontSize="0.8rem">

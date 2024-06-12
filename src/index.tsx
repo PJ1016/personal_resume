@@ -16,11 +16,8 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: {
-          body1: {
-            "@media print": {
-              fontSize: "12px", // Example: Reduce font size for print
-              color: "black", // Example: Change color for print
-            },
+          "@media print": {
+            fontSize: "12px", // Example: Reduce font size for print
           },
         },
       },

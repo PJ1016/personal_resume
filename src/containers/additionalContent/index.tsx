@@ -4,9 +4,7 @@ import { useAppSelector } from "../../store/store";
 import FullContent from "./fullContent";
 
 const AdditionalContent = () => {
-  const { additionalContent } = useAppSelector(
-    (state) => state.additionalContent
-  );
+  const { additionalContent } = useAppSelector((state) => state.resume);
 
   return (
     <>

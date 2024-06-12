@@ -7,7 +7,7 @@ export interface IContent {
   endDate: string;
   content: string;
 }
-interface IAdditionalContent {
+export interface IAdditionalContent {
   additionalContent: IContent[];
 }
 const initialState: IAdditionalContent = {

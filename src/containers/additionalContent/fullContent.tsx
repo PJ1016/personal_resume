@@ -1,12 +1,11 @@
 import React from "react";
 import AdditionalTextReadOnly from "./additionalTextReadOnly";
-import {
-  updateContent,
-  type IContent,
-} from "../../store/slices/additionalContentSlice";
+
 import { useForm } from "react-hook-form";
 import AdditionalContentModal from "./additionalContentModal";
 import { useAppDispatch, useAppSelector } from "../../store/store";
+import type { IContent } from "../../store/slices/additionalContentSlice";
+import { updateContent } from "../../store/slices/resumeSlice";
 interface IFullContent {
   item: IContent;
 }

@@ -7,11 +7,18 @@ import WorkExperience from "../work";
 import AdditionalContent from "../additionalContent";
 import { Button, Stack } from "@mui/material";
 import { useAppDispatch } from "../../store/store";
-import { addContent } from "../../store/slices/additionalContentSlice";
+import { addContent } from "../../store/slices/resumeSlice";
 const HomeWrapper = styled.div`
   border: 1px solid;
   padding: 1rem;
+  box-sizing: border-box;
+  page-break-inside: avoid; /* Prevent splitting the border between pages */
+  page-break-before: always; /* Ensure a new page starts before this element */
+  @media print {
+    border: 0.5px solid;
+  }
 `;
+
 export const NotToPrint = styled.span`
   @media print {
     display: none;
@@ -40,8 +47,8 @@ const Home = () => {
       <HomeWrapper>
         <PersonalDetails />
         <Summary />
-        <Education />
         <WorkExperience />
+        <Education />
         <AdditionalContent />
         <NotToPrint>
           <Stack direction="row" spacing={2}>

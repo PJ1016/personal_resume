@@ -11,6 +11,8 @@ const PersonalDetails = () => {
   };
   const linkedInAddress = "linkedin.com/in/praveen-jayanth-8b0687199";
   const { personalInfo } = useAppSelector((state) => state.resume);
+  const x = useAppSelector((state) => state.resume);
+  console.log(x);
   const content = [
     personalInfo.mobileNumber,
     personalInfo.emailAddress,

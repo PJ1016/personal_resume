@@ -19,6 +19,9 @@ const SpecificCompany = ({ data }: ISpecificCompany) => {
           </Typography>
         </Grid>
       </Grid>
+      <Typography fontSize="0.8rem" fontStyle="italic">
+        {data.jobTitle}
+      </Typography>
       <Typography
         fontSize="0.8rem"
         dangerouslySetInnerHTML={{ __html: data.jobDescription }}

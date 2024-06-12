@@ -42,11 +42,7 @@ const SummaryDetailsModal = ({
     try {
       setIsLoading(true);
       const result = await client.generateContent(
-        `Can you generate a concise resume summary, focusing on ${
-          watch("primarySkill") || "React"
-        } as his primary skill of ${
-          watch("#exp") || 2
-        } year experenice, in under 150 words?`
+        `Can you generate a summary for a resume tailored to the job description of ${watch("jobDescription") || "react role"}? Please format the summary as a concise paragraph, focusing on the candidate's ${watch("#exp") || 3}-year experience and suitability for the role`
       );
       setValue(
         "summary",
@@ -69,8 +65,8 @@ const SummaryDetailsModal = ({
             <Grid item xs={12} md={6}>
               <TextField
                 autoFocus
-                {...register("primarySkill")}
-                label="Primary Skill"
+                {...register("jobDescription")}
+                label="Job Description"
                 fullWidth
                 variant="standard"
               />

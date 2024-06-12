@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 export interface ISummaryState {
-  primarySkill: string;
+  jobDescription: string;
   summary: string;
   "#exp": string;
 }
 export const defaultSumamry =
-  "Experienced React Developer specializing in high-performance web applications with React and Redux. Skilled in complex UI design, performance optimization, client interaction, team collaboration, and project contribution for multiple clients. Committed to innovation and user-friendly solutions.";
-
+  "Results-driven Application Development Analyst with a proven track record in delivering high-impact solutions for employee portals and microsites. Skilled in end-to-end development, UI/UX design, and integration, I excel in creating user-centric experiences that drive engagement and efficiency. With expertise in React, authentication systems like OKTA, and a strong commitment to quality, I am well-prepared to contribute to the development of innovative applications at Grocery and Everyday Essential Tech team.";
 export const initialState: ISummaryState = {
   summary: defaultSumamry,
-  primarySkill: "",
+  jobDescription: "",
   "#exp": "",
 };
 const summarySlice = createSlice({

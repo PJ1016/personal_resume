@@ -12,11 +12,11 @@ export const initialState: IEducationState[] = [
   {
     id: "123",
     collegeName: "Rajiv Gandhi University of Knowledge and Technologies",
-    city: "Cincinnati, Ohio",
+    city: "Basar, Telangana",
     course: "Computer Science and Engineering",
     startDate: "Jun 2017",
     endDate: "Aug 2021",
-    additionalContent: "<li>Dean’s Excellence Award Recipient</li>",
+    additionalContent: "",
   },
 ];
 const educationSlice = createSlice({
