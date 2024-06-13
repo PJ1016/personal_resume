@@ -3,16 +3,8 @@ import { useAppSelector } from "../../store/store";
 import { Link, Stack, Typography } from "@mui/material";
 
 const PersonalDetails = () => {
-  const handleSocialSite = () => {
-    window.open(
-      "https://www.linkedin.com/in/praveen-jayanth-8b0687199",
-      "_blank"
-    );
-  };
-  const linkedInAddress = "linkedin.com/in/praveen-jayanth-8b0687199";
   const { personalInfo } = useAppSelector((state) => state.resume);
-  const x = useAppSelector((state) => state.resume);
-  console.log(x);
+
   const content = [
     personalInfo.mobileNumber,
     personalInfo.emailAddress,
@@ -20,6 +12,9 @@ const PersonalDetails = () => {
   ];
 
   const formattedContent = content.join(" • ");
+  const handleSocialSite = () => {
+    window.open(`https://${personalInfo.linkedInAddress}`, "_blank");
+  };
   return (
     <>
       <Typography variant="h6" textAlign="center" fontWeight="bold">
@@ -34,7 +29,7 @@ const PersonalDetails = () => {
           onClick={() => handleSocialSite()}
           lineHeight="0"
         >
-          {linkedInAddress}
+          {personalInfo.linkedInAddress}
         </Link>
       </Stack>
     </>

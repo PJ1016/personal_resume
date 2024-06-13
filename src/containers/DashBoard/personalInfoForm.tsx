@@ -84,17 +84,20 @@ const PersonalInfoForm = () => {
               <Grid item md={6} />
               <Grid item xs={12} md={12}>
                 <InputLabel htmlFor="outlined-adornment-address">
-                  Address
+                  LinkedIn Address
                 </InputLabel>
                 <TextField
-                  {...register("address", {
-                    required: { value: true, message: "Address is required" },
+                  {...register("linkedInAddress", {
+                    required: {
+                      value: true,
+                      message: "linked in address is required",
+                    },
                   })}
                   id="outlined-adornment-address"
-                  error={Boolean(errors.address)}
+                  error={Boolean(errors.linkedInAddress)}
                   size="small"
                   fullWidth
-                  helperText={errors.address?.message}
+                  helperText={errors.linkedInAddress?.message}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
