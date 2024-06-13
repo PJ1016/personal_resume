@@ -6,6 +6,7 @@ import { useAppSelector } from "../../store/store";
 import ExperienceForm from "./experienceForm";
 import Home, { NotToPrint } from "../home";
 import { Alert } from "@mui/material";
+import EducationForm from "./educationForm";
 
 const DashBaord = () => {
   const { activeStep } = useAppSelector((state) => state.activeStepper);
@@ -16,6 +17,8 @@ const DashBaord = () => {
         return <PersonalInfoForm />;
       case 1:
         return <ExperienceForm />;
+      case 2:
+        return <EducationForm />;
       default:
         return (
           <div>

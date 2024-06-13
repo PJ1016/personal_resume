@@ -8,13 +8,16 @@ import {
   type ExperienceState,
 } from "./experienceSlice";
 import type { IContent } from "./additionalContentSlice";
+import type { IEducationState } from "./educationSlice";
 interface IResumeState {
   personalInfo: PersonalDetailState;
+  education: IEducationState[];
   experience: ExperienceState[];
   additionalContent: IContent[];
 }
 const initialState: IResumeState = {
   personalInfo: defaultPersonalDetail,
+  education: [],
   experience: defaultExperienceState,
   additionalContent: [
     {
@@ -85,6 +88,18 @@ const resumeSlice = createSlice({
         id: Math.random().toString(),
       });
     },
+    addEducationInfo: (state, action) => {
+      state.education.push({
+        ...action.payload,
+        id: Math.random().toString(),
+      });
+    },
+    deleteEducationInfo: (state, action) => {
+      console.log(action.payload, state.education);
+      state.education = state.education.filter(
+        (item) => item.id !== action.payload
+      );
+    },
     deleteWorkExperience: (state, action) => {
       state.experience = state.experience.filter(
         (item) => item.id !== action.payload
@@ -103,6 +118,8 @@ export const {
   addWorkInfo,
   deleteWorkExperience,
   updateContent,
+  addEducationInfo,
+  deleteEducationInfo,
   addContent,
 } = resumeSlice.actions;
 export const resumeReducer = resumeSlice.reducer;

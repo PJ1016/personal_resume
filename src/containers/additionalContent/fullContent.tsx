@@ -14,9 +14,7 @@ const FullContent = ({ item }: IFullContent) => {
   const additionalContentForm = useForm<IContent>({
     defaultValues: item,
   });
-  const { additionalContent } = useAppSelector(
-    (state) => state.additionalContent
-  );
+  const { additionalContent } = useAppSelector((state) => state.resume);
   const { handleSubmit } = additionalContentForm;
 
   const [openAdditionalContentDetails, setOpenAdditionalContentDetails] =

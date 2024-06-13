@@ -7,7 +7,7 @@ interface IEducationContent {
   handleOpen: () => void;
 }
 const EducationContent = ({ handleOpen }: IEducationContent) => {
-  const { education } = useAppSelector((data) => data.education);
+  const { education } = useAppSelector((data) => data.resume);
   return (
     <div onClick={handleOpen}>
       <Typography fontWeight="bold">Education</Typography>

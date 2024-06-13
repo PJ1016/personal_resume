@@ -12,11 +12,6 @@ const HomeWrapper = styled.div`
   border: 1px solid;
   padding: 1rem;
   box-sizing: border-box;
-  page-break-inside: avoid; /* Prevent splitting the border between pages */
-  page-break-before: always; /* Ensure a new page starts before this element */
-  @media print {
-    border: 0.5px solid;
-  }
 `;
 
 export const NotToPrint = styled.span`

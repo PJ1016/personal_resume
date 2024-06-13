@@ -8,6 +8,15 @@ export interface IEducationState {
   endDate: string;
   additionalContent?: string;
 }
+export const defaultEdcationState = {
+  id: "",
+  collegeName: "",
+  city: "",
+  course: "",
+  startDate: "",
+  endDate: "",
+  additionalContent: "",
+};
 export const initialState: IEducationState[] = [
   {
     id: "123",
