@@ -8,6 +8,7 @@ import {
   type IEducationState,
 } from "../../store/slices/educationSlice";
 import { useAppDispatch } from "../../store/store";
+import { updateEducationInfo } from "../../store/slices/resumeSlice";
 
 export interface IEducationHookProps {
   education: IEducationState[];
@@ -28,7 +29,7 @@ const Education = () => {
   const { handleSubmit } = educationFormHook;
 
   const onSubmit = handleSubmit((data) => {
-    dispatch(setEducation(data.education));
+    dispatch(updateEducationInfo(data.education));
     handleClose();
   });
   return (

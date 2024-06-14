@@ -25,6 +25,7 @@ import type { IEducationHookProps } from ".";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import ReactQuill from "react-quill";
+import { useAppSelector } from "../../store/store";
 interface IEducationModal {
   open: boolean;
   handleClose: (close: boolean) => void;
@@ -37,6 +38,7 @@ const EducationModal = ({
   onSubmit,
   educationFormHook,
 }: IEducationModal) => {
+  const { education } = useAppSelector((data) => data.resume);
   const {
     register,
     control,
@@ -62,7 +64,7 @@ const EducationModal = ({
             : "Click on add Education"}
         </DialogContentText>
         <form onSubmit={onSubmit}>
-          {fields.map((item, index) => (
+          {education.map((item, index) => (
             <Paper
               sx={{ padding: "1rem", marginTop: "1rem" }}
               key={`${item.collegeName}.${index}`}
@@ -70,7 +72,6 @@ const EducationModal = ({
             >
               <Stack alignItems="end">
                 <IconButton
-                  color="error"
                   id="removeCard"
                   onClick={() => handleRemoveCard(item.id)}
                 >

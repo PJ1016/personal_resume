@@ -9,6 +9,7 @@ import {
 } from "./experienceSlice";
 import type { IContent } from "./additionalContentSlice";
 import type { IEducationState } from "./educationSlice";
+import { act } from "react";
 interface IResumeState {
   personalInfo: PersonalDetailState;
   education: IEducationState[];
@@ -94,6 +95,9 @@ const resumeSlice = createSlice({
         id: Math.random().toString(),
       });
     },
+    updateEducationInfo: (state, action) => {
+      state.education = action.payload;
+    },
     deleteEducationInfo: (state, action) => {
       console.log(action.payload, state.education);
       state.education = state.education.filter(
@@ -120,6 +124,7 @@ export const {
   updateContent,
   addEducationInfo,
   deleteEducationInfo,
+  updateEducationInfo,
   addContent,
 } = resumeSlice.actions;
 export const resumeReducer = resumeSlice.reducer;
