@@ -4,7 +4,6 @@ export const resumeSteps = [
   "EXPERIENCE",
   "EDUCATION",
   "SKILLS",
-  "SUMMARY",
   "REVIEW & DOWNLOAD",
 ];
 interface IActiveStepperSlice {

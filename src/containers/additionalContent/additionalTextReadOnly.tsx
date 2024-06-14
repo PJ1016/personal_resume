@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
+import EditIcon from "@mui/icons-material/Edit";
 
 import { useAppDispatch, useAppSelector } from "../../store/store";
 
@@ -32,7 +33,14 @@ const AdditionalTextReadOnly = ({ item, handleOpen }: IAdditionalReadOnly) => {
   return (
     <div>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Typography fontWeight="bold">{item.title}</Typography>
+        <Typography fontWeight="bold">
+          {item.title}{" "}
+          <NotToPrint>
+            <IconButton onClick={handleOpen}>
+              <EditIcon sx={{ fontSize: 15 }} />
+            </IconButton>
+          </NotToPrint>
+        </Typography>
         <NotToPrint>
           <IconButton onClick={() => removeSection(item.id)}>
             <CancelIcon />
@@ -41,29 +49,27 @@ const AdditionalTextReadOnly = ({ item, handleOpen }: IAdditionalReadOnly) => {
       </Stack>
       <Divider sx={{ marginY: "3px" }} />
 
-      <Box onClick={handleOpen}>
-        <Grid container>
-          {item.subHeader ? (
-            <Grid item xs={6} md={6}>
-              <Typography fontWeight="bold" fontSize="0.8rem">
-                {item.subHeader}
-              </Typography>
-            </Grid>
-          ) : null}
+      <Grid container>
+        {item.subHeader ? (
+          <Grid item xs={6} md={6}>
+            <Typography fontWeight="bold" fontSize="0.8rem">
+              {item.subHeader}
+            </Typography>
+          </Grid>
+        ) : null}
 
-          {item.startDate ? (
-            <Grid item xs={6} md={6}>
-              <Typography fontSize="0.8rem" fontWeight="bold" textAlign="end">
-                {item.startDate}- {item.endDate || "Present"}
-              </Typography>
-            </Grid>
-          ) : null}
-        </Grid>
-        <Typography
-          fontSize="0.8rem"
-          dangerouslySetInnerHTML={{ __html: item.content }}
-        />
-      </Box>
+        {item.startDate ? (
+          <Grid item xs={6} md={6}>
+            <Typography fontSize="0.8rem" fontWeight="bold" textAlign="end">
+              {item.startDate}- {item.endDate || "Present"}
+            </Typography>
+          </Grid>
+        ) : null}
+      </Grid>
+      <Typography
+        fontSize="0.8rem"
+        dangerouslySetInnerHTML={{ __html: item.content }}
+      />
     </div>
   );
 };

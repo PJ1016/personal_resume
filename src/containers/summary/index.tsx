@@ -1,6 +1,7 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
+import EditIcon from "@mui/icons-material/Edit";
 import SummaryDetailsModal from "./summaryDetailsModal";
 import {
   defaultSumamry,
@@ -8,6 +9,7 @@ import {
   type ISummaryState,
 } from "../../store/slices/summarySlice";
 import { useAppDispatch, useAppSelector } from "../../store/store";
+import { NotToPrint } from "../home";
 const Summary = () => {
   const dispatch = useAppDispatch();
   const [openSummaryDetails, setOpenSummaryDetails] = React.useState(false);
@@ -27,14 +29,19 @@ const Summary = () => {
   });
   return (
     <Box marginY={2}>
-      <Typography fontWeight="bold">Summary</Typography>
+      <Typography fontWeight="bold" alignItems="center">
+        Summary
+        <NotToPrint>
+          <IconButton onClick={handleOpen}>
+            <EditIcon sx={{ fontSize: 15 }} />
+          </IconButton>
+        </NotToPrint>
+      </Typography>
       <Divider sx={{ marginY: "3px" }} />
-      <div onClick={handleOpen}>
-        <Typography
-          fontSize="0.8rem"
-          dangerouslySetInnerHTML={{ __html: summary.summary }}
-        />
-      </div>
+      <Typography
+        fontSize="0.8rem"
+        dangerouslySetInnerHTML={{ __html: summary.summary }}
+      />
       <SummaryDetailsModal
         open={openSummaryDetails}
         handleClose={handleClose}
