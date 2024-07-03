@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Controller,
   type ControllerFieldState,
@@ -6,6 +6,7 @@ import {
   type UseFormReturn,
   type UseFormStateReturn,
 } from "react-hook-form";
+import { LoadingButton } from "@mui/lab";
 import type { IContent } from "../../store/slices/additionalContentSlice";
 import {
   Button,
@@ -20,6 +21,7 @@ import {
 import ReactQuill from "react-quill";
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
+import { GenerativeModel } from "@google/generative-ai";
 interface IAdditionalContentModal {
   open: boolean;
   handleClose: (close: boolean) => void;
@@ -32,7 +34,32 @@ const AdditionalContentModal = ({
   onSubmit,
   additionalFormHook,
 }: IAdditionalContentModal) => {
-  const { register, control } = additionalFormHook;
+  const { register, control, setValue, watch } = additionalFormHook;
+  const [isLoading, setIsLoading] = useState<boolean>();
+  const geminiSecretKey = process.env.REACT_APP_GEMINI_SECRET_KEY;
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const client = new GenerativeModel(geminiSecretKey as string, {
+      model: "gemini-1.5-pro",
+    });
+    try {
+      setIsLoading(true);
+      const result = await client.generateContent(
+        `key skills for the job description "${watch("jobDescription")}" return response as list of tags like <ul> and each row has sub header  in bold : followed by skills `
+      );
+      setValue(
+        "content",
+        (result.response.candidates &&
+          result.response.candidates[0].content.parts[0].text) as string
+      );
+    } catch (error) {
+      console.error("Error generating text:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <Dialog open={open} onClose={handleClose} fullWidth={true}>
       <DialogTitle>Get Summary Details</DialogTitle>
@@ -53,6 +80,16 @@ const AdditionalContentModal = ({
               <TextField
                 autoFocus
                 {...register("subHeader", {})}
+                label="Sub-title"
+                multiline
+                fullWidth
+                variant="standard"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                autoFocus
+                {...register("jobDescription", {})}
                 label="Sub-title"
                 multiline
                 fullWidth
@@ -129,6 +166,16 @@ const AdditionalContentModal = ({
                   />
                 )}
               />
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <LoadingButton
+                size="small"
+                onClick={handleSubmit}
+                loading={isLoading}
+                variant="contained"
+              >
+                Generate Summary
+              </LoadingButton>
             </Grid>
           </Grid>
         </form>

@@ -6,6 +6,7 @@ export interface IContent {
   startDate: string;
   endDate: string;
   content: string;
+  jobDescription: string;
 }
 export interface IAdditionalContent {
   additionalContent: IContent[];

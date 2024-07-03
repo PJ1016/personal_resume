@@ -27,6 +27,7 @@ const initialState: IResumeState = {
       subHeader: "",
       startDate: "",
       endDate: "",
+      jobDescription: "",
       content: `<ul>
   <li>Developed an AI-powered resume builder using natural language processing, integrating GPT-3 for tailored summaries.</li>
   <li>Utilized the Gemini API to optimize work responsibilities for clarity and conciseness.</li>
@@ -48,6 +49,7 @@ const initialState: IResumeState = {
       title: "Technical Skills",
       subHeader: "",
       startDate: "",
+      jobDescription: "",
       endDate: "",
     },
     {
@@ -55,6 +57,7 @@ const initialState: IResumeState = {
       title: "Scholastic Acheviements",
       subHeader: "",
       startDate: "",
+      jobDescription: "",
       endDate: "",
       content: `<ul>
                   <li>Contributor to the newsletter edition for the project team at Accenture.</li>
@@ -71,6 +74,7 @@ const initialState: IResumeState = {
       id: "3",
       title: "Interests",
       subHeader: "",
+      jobDescription: "",
       startDate: "",
       endDate: "",
     },
