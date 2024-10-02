@@ -29,7 +29,7 @@ export const workExperienceInitialData: IWorkExperienceState[] = [
         Created UI features for updating beneficiaries, streamlining the process for Walmart customers by 30%, and ensuring accessibility for non-Walmart customers.
       </li>
       <li>
-        Integrated external links for document access based on type (Depot, Walmart, Lowes, etc.), enhancing user convenience.
+        Collaborated with cross-functional teams to identify user needs and implement data-driven enhancements, enabling real-time decision-making capabilities.
       </li>
       <li>
         Engineered functionalities for claim management, including checking claim details, payment breakdown, and filing claims for various insurance types, processing over 500 claims monthly.

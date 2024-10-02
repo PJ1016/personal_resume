@@ -39,13 +39,14 @@ const initialState: IResumeState = {
     {
       content: `
 <ul>
-  <li><strong>Front-End Technologies</strong>: React.js, Redux, JavaScript (ES6+), HTML5, CSS3, TypeScript</li>
-  <li><strong>Backend & Databases</strong>: Python, SQL</li>
-  <li><strong>Tooling & Frameworks</strong>: npm, Git, Jenkins, JIRA, VersionOne</li>
+  <li><strong>Front-End Technologies</strong>: React.js, Redux, JavaScript (ES6+), TypeScript, HTML5, CSS3</li>
   <li><strong>UI/UX</strong>: Responsive Design, Material-UI, Cloudscape</li>
   <li><strong>Testing & Debugging</strong>: React Testing Library, Jest, Cypress</li>
   <li><strong>Methodologies</strong>: Agile, Scrum</li>
+  <li><strong>Backend & Databases</strong>: Python, SQL</li>
+  <li><strong>Tooling & Frameworks</strong>: npm, Git, Jenkins, JIRA, VersionOne</li>
 </ul>
+
 `,
       id: "1",
       title: "Technical Skills",
