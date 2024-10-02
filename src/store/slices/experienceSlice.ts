@@ -11,19 +11,30 @@ export interface ExperienceState {
 }
 export const defaultExperience: ExperienceState = {
   id: Math.random().toString(),
-  employer: "Accenture (Hyderabad, India)",
-  jobTitle: "Application Development Analyst",
+  employer: "Application Development Analyst",
+  jobTitle: "Accenture, Hyderabad, India",
   city: "",
   state: "",
   startDate: "OCT 2021",
   endDate: "PRESENT",
   jobDescription: `
-     <ul>
-  <li><strong>Code Reviews and Team Collaboration:</strong> Led code reviews and team collaboration, improving code quality and reducing issues by 30%, and utilized Jenkins, Git, JIRA, and ES Lint for continuous integration and project management.</li>
-  <li><strong>UI Component Design and Development:</strong> Designed and developed UI components with React and Angular, boosting user engagement by 25%, and enhanced Allstate's Employee Portal for over 10,000 users, improving satisfaction by 40%.</li>
-  <li><strong>Claim Management Functionality and OKTA Integration:</strong> Engineered claim management functionalities, processing over 500 claims monthly and improving efficiency by 20%, and integrated OKTA for secure, seamless authentication across environments.</li>
-  <li><strong>Code Quality and Defect Resolution:</strong> Contributed to code quality and defect resolution, achieving an 80% reduction in Sonar issues through improved code coverage and defect resolution strategies.</li>
-</ul>
+    <h4 >Employee Portal Development (Allstate):</h4>
+    <ul>
+        <li>Developed features for the Employee Portal, improving access for over 10,000 users and streamlining beneficiary updates, reducing process time by 30%.</li>
+        <li>Built claim management functionalities, processing 500+ claims monthly with a 20% boost in efficiency.</li>
+        <li>Reduced customer service inquiries by 40% through the implementation of self-service features like the Message Center.</li>
+    </ul>
+    <h4>Marsh Microsite Development (CNA Insurance):</h4>
+    <ul>
+      <li>Established a React-based microsite for coverage management, enhancing navigation and reducing document handling time by 40%.</li>
+      <li>Integrated secure OKTA authentication across environments, ensuring seamless access.</li>
+      <li>Improved user engagement and navigation efficiency by 25% with UI components for submissions and quotes.</li>
+    </ul>
+
+    <h4>Code Reviews and Continuous Integration:</h4>
+    <ul>
+      <li>Led code reviews, enhancing code quality by 30%, and utilized Jenkins, Git, JIRA, and ES Lint for project management and integration.</li>
+    </ul>
 
 
 `,

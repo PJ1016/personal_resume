@@ -23,28 +23,30 @@ const initialState: IResumeState = {
   additionalContent: [
     {
       id: "",
-      title: "Project: AI-Powered Resume Builder",
+      title: "AI-Powered Resume Builder (Personal Project)",
       subHeader: "",
       startDate: "",
       endDate: "",
       jobDescription: "",
       content: `<ul>
-  <li>Developed an AI-powered resume builder using natural language processing, integrating GPT-3 for tailored summaries.</li>
+  <li>Developed an AI-powered resume builder using natural language processing and GPT-3 for tailored summaries. This resume was generated using the tool to demonstrate its capabilities.</li>
   <li>Utilized the Gemini API to optimize work responsibilities for clarity and conciseness.</li>
-  <li>Designed a user-friendly interface for inputting personal information, skills, and fine-tuning generated summaries.</li>
-  <li>Implemented PDF export functionality for easy distribution of finalized resumes.</li>
-  <li>https://pj1016.github.io/personal_resume</li>
+  <li>Designed a user-friendly interface and implemented PDF export functionality for easy distribution of finalized resumes.</li>
+  <li><a href="https://pj1016.github.io/personal_resume" target="_blank">Live Demo for the Project</a></li>
 </ul>
 `,
     },
     {
-      content: `<ul>
-    <li>Front-End Technologies: React.js, Redux, JavaScript (ES6+), HTML5, CSS3, TypeScript</li>
-    <li>Backend & Databases: Python, SQL</li>
-    <li>Tooling & Frameworks: npm, Git, Jenkins, JIRA, Version one</li>
-    <li>UI/UX: Responsive Design, Material-UI, Cloudscape</li>
-    <li>Testing & Debugging: React testing library, Jest, Cypress</li>
-  </ul>`,
+      content: `
+<ul>
+  <li><strong>Front-End Technologies</strong>: React.js, Redux, JavaScript (ES6+), HTML5, CSS3, TypeScript</li>
+  <li><strong>Backend & Databases</strong>: Python, SQL</li>
+  <li><strong>Tooling & Frameworks</strong>: npm, Git, Jenkins, JIRA, VersionOne</li>
+  <li><strong>UI/UX</strong>: Responsive Design, Material-UI, Cloudscape</li>
+  <li><strong>Testing & Debugging</strong>: React Testing Library, Jest, Cypress</li>
+  <li><strong>Methodologies</strong>: Agile, Scrum</li>
+</ul>
+`,
       id: "1",
       title: "Technical Skills",
       subHeader: "",
@@ -60,16 +62,17 @@ const initialState: IResumeState = {
       jobDescription: "",
       endDate: "",
       content: `<ul>
-                  <li>Contributor to the newsletter edition for the project team at Accenture.</li>
-                  <li>Achieved Elite Certification in NPTEL for "Programming in Java".</li>
-                  <li>Secured 3234th Rank in Code Vita 2020.</li>
-                </ul>`,
+  <li><strong>Contributor</strong> to the project team newsletter at Accenture, enhancing team communication and knowledge sharing.</li>
+  <li><strong>Achieved Elite Certification</strong> in NPTEL for "Programming in Java," demonstrating advanced proficiency in Java programming.</li>
+  <li><strong>Secured 3234th Rank</strong> in Code Vita 2020, showcasing competitive coding skills among thousands of participants.</li>
+</ul>`,
     },
     {
       content: `<ul>
-  <li>Proficient in creatively solving complex problems using analytical thinking and technical expertise.</li>
-  <li>Passionate about staying updated with the latest trends in front-end development through online courses, workshops, and tech meetups.</li>
-  <li>Enthusiastic about enhancing user experience and interface design, and eager to implement innovative solutions in collaboration with cross-functional teams. Outside of work, I enjoy playing and watching cricket.</li>
+  <li>Proficient in creatively solving complex problems with analytical thinking and technical expertise.</li>
+  <li>Passionate about front-end development trends, actively participating in online courses, workshops, and tech meetups.</li>
+  <li>Enthusiastic about enhancing user experience and interface design, eager to implement innovative solutions with cross-functional teams.</li>
+  <li>Enjoy playing and watching cricket and badminton outside of work.</li>
 </ul>`,
       id: "3",
       title: "Interests",
