@@ -47,7 +47,28 @@ const AdditionalContentModal = ({
     try {
       setIsLoading(true);
       const result = await client.generateContent(
-        `key skills for the job description "${watch("jobDescription")}" return response as list of tags like <ul> and each row has sub header  in bold : followed by skills `
+        `
+You are an expert resume writer.
+
+Generate a professional "Technical Skills" section for a resume.
+Tailor it to the following job description and the candidate's 4 years of experience in React and front-end development.
+
+Requirements:
+- Output plain text only (no HTML, markdown, or special characters)
+- Use 5–6 short, labeled lines like this format:
+  Frontend: ...
+  Testing & Quality: ...
+  Build & CI/CD: ...
+  APIs & Authentication: ...
+  Performance Optimization: ...
+  (Add "Others:" only if relevant)
+- Prioritize technologies relevant to React, TypeScript, Redux Toolkit, Fluent UI, GraphQL, Jest, OKTA, Azure DevOps, and performance optimization.
+- Keep tone professional and ATS-friendly.
+- Do not exceed 6 lines.
+
+Job Description:
+"${watch("jobDescription")}"
+`
       );
       setValue(
         "content",
@@ -90,7 +111,7 @@ const AdditionalContentModal = ({
               <TextField
                 autoFocus
                 {...register("jobDescription", {})}
-                label="Sub-title"
+                label="Job Description"
                 multiline
                 fullWidth
                 variant="standard"

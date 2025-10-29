@@ -9,9 +9,16 @@ const WorkExperience = () => {
     <>
       <Typography fontWeight="bold">Work Experience</Typography>
       <Divider sx={{ marginY: ".5rem" }} />
-      {experience.map((item) => (
-        <SpecificCompany data={item} key={item.id} />
-      ))}
+      {experience.map((item, index) => {
+        return (
+          <>
+            <SpecificCompany data={item} key={item.id} />
+            {index != experience.length - 1 && (
+              <Divider sx={{ marginY: "1rem" }} />
+            )}
+          </>
+        );
+      })}
     </>
   );
 };

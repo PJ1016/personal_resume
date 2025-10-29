@@ -42,7 +42,22 @@ const SummaryDetailsModal = ({
     try {
       setIsLoading(true);
       const result = await client.generateContent(
-        `Can you generate a summary for a resume tailored to the job description of ${watch("jobDescription") || "react role"}? Please format the summary as a concise paragraph, focusing on the candidate's ${watch("#exp") || 3}-year experience and suitability for the role`
+        `
+You are an expert resume writer.
+
+Write a professional resume summary (45–60 words) tailored to the following job description.
+Focus on the candidate’s ${watch("#exp")} years of experience as a Frontend Engineer specializing in React, TypeScript, Redux Toolkit, and Jest.
+
+Requirements:
+- Output plain text only (no HTML, markdown, or bullet points)
+- Start directly with the profile (no introductions like "Sure!" or "Here’s a summary:")
+- Mention at least one measurable achievement or result (e.g., performance improvement, defect reduction)
+- Keep the tone confident, concise, and ATS-friendly
+- Emphasize collaboration, clean code, and performance optimization
+
+Job Description:
+${watch("jobDescription")}
+`
       );
       setValue(
         "summary",

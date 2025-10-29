@@ -11,33 +11,44 @@ export interface ExperienceState {
 }
 export const defaultExperience: ExperienceState = {
   id: Math.random().toString(),
-  employer: "Application Development Analyst",
-  jobTitle: "Accenture, Hyderabad, India",
-  city: "",
-  state: "",
+  employer: "Accenture",
+  jobTitle: "Application Development Analyst",
+  city: "Hyderabad",
+  state: "India",
   startDate: "OCT 2021",
-  endDate: "PRESENT",
+  endDate: "JAN 2025",
   jobDescription: `
-    <h4 >Employee Portal Development (Allstate):</h4>
+    <h4>Delivered enterprise React applications for clients including Allstate and CNA Insurance, improving performance, usability, and deployment efficiency.</h4>
     <ul>
-        <li>Developed features for the Employee Portal, improving access for over 10,000 users and streamlining beneficiary updates, reducing process time by 30%.</li>
-        <li>Collaborated with cross-functional teams to identify user needs and implement data-driven enhancements, enabling real-time decision-making capabilities.</li>
-        <li>Reduced customer service inquiries by 40% through the implementation of self-service features like the Message Center.</li>
+        <li>Developed and optimized UI features for Allstate's Employee Portal serving 10,000+ users, reducing process time by 30% and support inquiries by 40%.</li>
+        <li>Built a React-based microsite for CNA Insurance with OKTA authentication, reducing document handling time by 40%.</li>
+        <li>Drove code quality improvements by 30% through code reviews, ESLint adoption, and CI/CD automation with Jenkins, Git, and JIRA.</li>
     </ul>
-    <h4>Marsh Microsite Development (CNA Insurance):</h4>
-    <ul>
-      <li>Established a React-based microsite for coverage management, enhancing navigation and reducing document handling time by 40%.</li>
-      <li>Integrated secure OKTA authentication across environments, ensuring seamless access.</li>
-      <li>Developed a customizable React-based platform allowing users to perform in-depth financial analysis, improving efficiency and user engagement.</li>
-    </ul>
-
-    <h4>Code Reviews and Continuous Integration:</h4>
-    <ul>
-      <li>Led code reviews, enhancing code quality by 30%, and utilized Jenkins, Git, JIRA, and ES Lint for project management and integration.</li>
-    </ul>
-
-
-`,
+  `,
   primarySkill: "",
 };
-export const defaultExperienceState: ExperienceState[] = [defaultExperience];
+const currentExperience: ExperienceState = {
+  id: Math.random().toString(),
+  employer: "Infosys Limited",
+  jobTitle: "Senior Associate Consultant",
+  city: "Hyderabad",
+  state: "India",
+  startDate: "JAN 2025",
+  endDate: "Present",
+  jobDescription: `
+    <h4>Microsoft's Unified Support Pricing Platform:</h4>
+    <ul>
+        <li>Engineered and optimized the UI for Microsoft's Unified Support Pricing Platform using React and Fluent UI, enhancing scalability and responsiveness across complex pricing workflows.</li>
+        <li>Integrated GraphQL APIs and built a hybrid state architecture with Context API and Redux Toolkit, streamlining data synchronization and reducing redundant API calls by 20%.</li>
+        <li>Improved performance and accessibility compliance (WCAG 2.1) through virtualization, code splitting, and ARIA optimization, resulting in smoother load times and inclusive UX.</li>
+        <li>Collaborated with global teams via Azure DevOps, managing feature flags and automating deployments, which reduced environment configuration time by 30%.</li>
+        <li>Led React capability sessions for the team, standardizing UI practices and accelerating onboarding for new developers.</li>
+    </ul>
+  `,
+  primarySkill: "",
+};
+
+export const defaultExperienceState: ExperienceState[] = [
+  currentExperience,
+  defaultExperience,
+];
