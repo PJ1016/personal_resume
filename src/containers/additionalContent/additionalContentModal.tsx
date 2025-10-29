@@ -42,7 +42,7 @@ const AdditionalContentModal = ({
     e.preventDefault();
 
     const client = new GenerativeModel(geminiSecretKey as string, {
-      model: "gemini-1.5-pro",
+      model: "gemini-2.5-pro",
     });
     try {
       setIsLoading(true);
