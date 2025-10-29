@@ -1,39 +1,99 @@
-import React from "react";
+import React, { memo } from "react";
+import { Box, Link, Stack, Typography, Divider } from "@mui/material";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useAppSelector } from "../../store/store";
-import { Link, Stack, Typography } from "@mui/material";
 
-const PersonalDetails = () => {
-  const { personalInfo } = useAppSelector((state) => state.resume);
+const sanitizeUrl = (input?: string) => {
+  if (!input) return null;
+  const trimmed = input.trim();
+  return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+};
 
-  const content = [
-    personalInfo.mobileNumber,
-    personalInfo.emailAddress,
-    personalInfo.city,
-  ];
+const PersonalDetails: React.FC = () => {
+  const personalInfo = useAppSelector((s) => s.resume.personalInfo);
 
-  const formattedContent = content.join(" • ");
-  const handleSocialSite = () => {
-    window.open(`https://${personalInfo.linkedInAddress}`, "_blank");
-  };
+  if (!personalInfo) return null;
+
+  const {
+    firstName = "",
+    lastName = "",
+    mobileNumber,
+    emailAddress,
+    linkedInAddress,
+  } = personalInfo;
+
+  const linkedInUrl = sanitizeUrl(linkedInAddress);
+
   return (
-    <>
-      <Typography variant="h6" textAlign="center" fontWeight="bold">
-        {personalInfo.firstName} {personalInfo.lastName}
+    <Box textAlign="center" py={1}>
+      <Typography variant="h4" fontWeight="bold">
+        {firstName} {lastName}
       </Typography>
 
-      <Stack alignItems="center" spacing={1}>
-        <Typography fontSize="12px">{formattedContent}</Typography>
-        <Link
-          fontSize="12px"
-          component="button"
-          onClick={() => handleSocialSite()}
-          lineHeight="0"
-        >
-          {personalInfo.linkedInAddress}
-        </Link>
+      <Typography variant="subtitle1" color="text.secondary" mb={1}>
+        Frontend Engineer — React & TypeScript
+      </Typography>
+
+      <Stack
+        direction="row"
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
+        divider={<Divider orientation="vertical" flexItem />}
+      >
+        {mobileNumber && (
+          <Box display="flex" alignItems="center" gap={0.5}>
+            <PhoneIcon fontSize="small" />
+            <Link
+              href={`tel:${mobileNumber}`}
+              underline="hover"
+              color="inherit"
+            >
+              {mobileNumber}
+            </Link>
+          </Box>
+        )}
+        {emailAddress && (
+          <Box display="flex" alignItems="center" gap={0.5}>
+            <EmailOutlinedIcon fontSize="small" />
+            <Link
+              href={`mailto:${emailAddress}`}
+              underline="hover"
+              color="inherit"
+            >
+              {emailAddress}
+            </Link>
+          </Box>
+        )}
+        <Box display="flex" alignItems="center" gap={0.5}>
+          <LinkedInIcon fontSize="small" sx={{ color: "#0a66c2" }} />
+          {linkedInUrl ? (
+            <Link
+              href={linkedInUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="hover"
+              sx={{ color: "#0a66c2" }}
+            >
+              LinkedIn
+            </Link>
+          ) : (
+            <Link
+              component="button"
+              underline="hover"
+              sx={{ color: "#0a66c2" }}
+            >
+              LinkedIn
+            </Link>
+          )}
+        </Box>
       </Stack>
-    </>
+
+      <Divider sx={{ mt: 1, width: "70%", mx: "auto" }} />
+    </Box>
   );
 };
 
-export default PersonalDetails;
+export default memo(PersonalDetails);

@@ -8,11 +8,6 @@ import AdditionalContent from "../additionalContent";
 import { Button, Stack } from "@mui/material";
 import { useAppDispatch } from "../../store/store";
 import { addContent } from "../../store/slices/resumeSlice";
-const HomeWrapper = styled.div`
-  border: 1px solid;
-  padding: 1rem;
-  box-sizing: border-box;
-`;
 
 export const NotToPrint = styled.span`
   @media print {
@@ -39,27 +34,21 @@ const Home = () => {
 
   return (
     <>
-      <HomeWrapper>
-        <PersonalDetails />
-        <Summary />
-        <WorkExperience />
-        <Education />
-        <AdditionalContent />
-        <NotToPrint>
-          <Stack direction="row" spacing={2}>
-            <Button variant="contained" onClick={handleAddContent}>
-              Add content
-            </Button>
-            <Button variant="contained" onClick={downloadContent}>
-              Download as PDF
-            </Button>
-          </Stack>
-        </NotToPrint>
-      </HomeWrapper>
-      {/* <NotToPrint>
-        <CommentSection />
-        <Link href="/dashboard">DashBoard</Link>
-      </NotToPrint> */}
+      <PersonalDetails />
+      <Summary />
+      <WorkExperience />
+      <Education />
+      <AdditionalContent />
+      <NotToPrint>
+        <Stack direction="row" spacing={2}>
+          <Button variant="contained" onClick={handleAddContent}>
+            Add content
+          </Button>
+          <Button variant="contained" onClick={downloadContent}>
+            Download as PDF
+          </Button>
+        </Stack>
+      </NotToPrint>
     </>
   );
 };
