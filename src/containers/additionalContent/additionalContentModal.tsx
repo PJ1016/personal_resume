@@ -51,19 +51,11 @@ const AdditionalContentModal = ({
 You are an expert resume writer.
 
 Generate a professional "Technical Skills" section for a resume.
-Tailor it to the following job description and the candidate's 4 years of experience in React and front-end development.
-
+Tailor it to the following job description and the candidate's 
 Requirements:
 - Output plain text only (no HTML, markdown, or special characters)
 - Use 5–6 short, labeled lines like this format:
-  Frontend: ...
-  Testing & Quality: ...
-  Build & CI/CD: ...
-  APIs & Authentication: ...
-  Performance Optimization: ...
-  (Add "Others:" only if relevant)
-- Prioritize technologies relevant to React, TypeScript, Redux Toolkit, Fluent UI, GraphQL, Jest, OKTA, Azure DevOps, and performance optimization.
-- Keep tone professional and ATS-friendly.
+  - Keep tone professional and ATS-friendly.
 - Do not exceed 6 lines.
 
 Job Description:

@@ -46,7 +46,7 @@ const SummaryDetailsModal = ({
 You are an expert resume writer.
 
 Write a professional resume summary (45–60 words) tailored to the following job description.
-Focus on the candidate’s ${watch("#exp")} years of experience as a Frontend Engineer specializing in React, TypeScript, Redux Toolkit, and Jest.
+Focus on the candidate’s ${watch("#exp")} years of experience
 
 Requirements:
 - Output plain text only (no HTML, markdown, or bullet points)
