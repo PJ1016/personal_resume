@@ -55,6 +55,21 @@ const initialState: IResumeState = {
       endDate: "",
     },
     {
+      content: `
+<ul>
+  <li>Conducted React capability sessions for team members</li>
+  <li>Standardized UI practices across multiple squads</li>
+</ul>
+
+`,
+      id: "1.5",
+      title: "Leadership & Mentorship",
+      subHeader: "",
+      startDate: "",
+      jobDescription: "",
+      endDate: "",
+    },
+    {
       id: "2",
       title: "Achievements",
       subHeader: "",
@@ -66,20 +81,6 @@ const initialState: IResumeState = {
   <li>Ranked 3234 in TCS CodeVita 2020 (among thousands of participants)</li>
   <li>Contributed articles for Accenture's internal newsletters</li>
 </ul>`,
-    },
-    {
-      content: `<ul>
-  <li>Proficient in creatively solving complex problems with analytical thinking and technical expertise.</li>
-  <li>Passionate about front-end development trends, actively participating in online courses, workshops, and tech meetups.</li>
-  <li>Enthusiastic about enhancing user experience and interface design, eager to implement innovative solutions with cross-functional teams.</li>
-  <li>Enjoy playing and watching cricket and badminton outside of work.</li>
-</ul>`,
-      id: "3",
-      title: "Interests",
-      subHeader: "",
-      jobDescription: "",
-      startDate: "",
-      endDate: "",
     },
   ],
 };

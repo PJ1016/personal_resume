@@ -19,10 +19,12 @@ export const defaultExperience: ExperienceState = {
   endDate: "JAN 2025",
   jobDescription: `
     <ul>
-        <li>Developed enterprise React applications for Allstate and CNA Insurance, improving usability, performance, and delivery efficiency.</li>
-        <li>Enhanced Allstate's Employee Portal serving 10,000+ users, improving process efficiency by 30% and reducing support tickets by 40%.</li>
-        <li>Built OKTA-secured microsites for CNA Insurance, reducing document management effort by 40%.</li>
-        <li>Elevated code quality across the team through code reviews, ESLint rules, Sonar fixes, and CI/CD improvements with Jenkins + Git, reducing defects by 30%.</li>
+        <li>Led code reviews and front-end collaboration, improving overall code quality and reducing recurring issues by 30%. Implemented CI/CD best practices using Jenkins, Git, JIRA, and ESLint, improving delivery efficiency and build reliability.</li>
+        <li>Designed and developed reusable UI components using React and Angular, increasing UI consistency and boosting user engagement by 25% across multiple enterprise modules.</li>
+        <li>Enhanced Allstate's Employee Portal, used by 10,000+ users, optimizing key workflows and improving user satisfaction scores by 40% through performance tuning and UX refinements.</li>
+        <li>Engineered claim management features to process 500+ claims/month, improving operational efficiency by 20% through automation and workflow optimization.</li>
+        <li>Integrated OKTA authentication to deliver secure, seamless login experiences across environments, reducing access-related issues and improving reliability.</li>
+        <li>Improved code quality by 80% through systematic Sonar issue reductions, stronger test coverage, and defect resolution strategies that improved long-term maintainability.</li>
     </ul>
   `,
   primarySkill: "",
@@ -43,6 +45,8 @@ const currentExperience: ExperienceState = {
         <li>Improved accessibility and load performance (WCAG 2.1) through virtualization, ARIA enhancements, and code splitting — resulting in significantly smoother navigation.</li>
         <li>Automated deployments and feature flag workflows via Azure DevOps, decreasing environment configuration time by 30%.</li>
         <li>Conducted React capability sessions, standardizing UI practices and reducing onboarding time for new engineers.</li>
+        <li>Architected reusable components and utilities aligned with Fluent UI, reducing development time for new modules by 20%.</li>
+        <li>Implemented unit tests using Jest + RTL, reducing post-deployment UI defects by 15–20%.</li>
     </ul>
   `,
   primarySkill: "",
