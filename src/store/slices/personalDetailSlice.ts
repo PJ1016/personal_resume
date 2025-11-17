@@ -6,21 +6,15 @@ export interface PersonalDetailState {
   mobileNumber: string;
   emailAddress: string;
   address: string;
-  city: string;
   linkedInAddress: string;
-  country: string;
-  zipCode: string;
 }
 export const defaultPersonalDetail = {
-  firstName: "",
-  lastName: "",
-  mobileNumber: "",
-  emailAddress: "",
+  firstName: "Praveen Jayanth",
+  lastName: "Kamatham",
+  mobileNumber: "9494039564",
+  emailAddress: "praveen.jayanth.1111@gmail.com",
   address: "",
-  city: "",
-  linkedInAddress: "",
-  country: "India",
-  zipCode: "",
+  linkedInAddress: "https://www.linkedin.com/in/praveen-jayanth-8b0687199/",
 };
 export const personalDetailSlice = createSlice({
   name: "personalDetail",

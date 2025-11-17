@@ -23,28 +23,27 @@ const initialState: IResumeState = {
   additionalContent: [
     {
       id: "",
-      title: "AI-Powered Resume Builder (Personal Project)",
+      title: "PROJECT — AI-Powered Resume Builder",
       subHeader: "",
       startDate: "",
       endDate: "",
       jobDescription: "",
       content: `<ul>
-  <li>Developed an AI-powered resume builder using natural language processing and GPT-3 for tailored summaries. This resume was generated using the tool to demonstrate its capabilities.</li>
-  <li>Utilized the Gemini API to optimize work responsibilities for clarity and conciseness.</li>
-  <li>Designed a user-friendly interface and implemented PDF export functionality for easy distribution of finalized resumes.</li>
-  <li><a href="https://pj1016.github.io/personal_resume" target="_blank">Live Demo for the Project</a></li>
+  <li>Built a custom AI-driven resume generator using NLP and GPT-3 to produce tailored summaries and optimized job-specific content.</li>
+  <li>Integrated Gemini API to enhance clarity and structure of job role descriptions.</li>
+  <li>Implemented export-to-PDF functionality and built a clean UX for template customization.</li>
+  <li>Live Demo: <a href="https://pj1016.github.io/personal_resume" target="_blank">https://pj1016.github.io/personal_resume</a></li>
 </ul>
 `,
     },
     {
       content: `
 <ul>
-  <li><strong>Front-End Technologies</strong>: React.js, Redux, JavaScript (ES6+), TypeScript, HTML5, CSS3</li>
-  <li><strong>UI/UX</strong>: Responsive Design, Material-UI, Cloudscape</li>
-  <li><strong>Testing & Debugging</strong>: React Testing Library, Jest, Cypress</li>
-  <li><strong>Methodologies</strong>: Agile, Scrum</li>
-  <li><strong>Backend & Databases</strong>: Python, SQL</li>
-  <li><strong>Tooling & Frameworks</strong>: npm, Git, Jenkins, JIRA, VersionOne</li>
+  <li><strong>Frontend</strong>: React.js, Redux Toolkit, JavaScript (ES6+), TypeScript, HTML5, CSS3, Cloudscape, Material-UI</li>
+  <li><strong>Performance & Accessibility</strong>: Virtualization, Code Splitting, ARIA, WCAG 2.1</li>
+  <li><strong>Testing</strong>: Jest, React Testing Library, Cypress</li>
+  <li><strong>Tooling</strong>: Git, npm, Jenkins, Azure DevOps, JIRA, VersionOne</li>
+  <li><strong>Backend/Other</strong>: Python, SQL, GraphQL, REST APIs</li>
 </ul>
 
 `,
@@ -57,15 +56,15 @@ const initialState: IResumeState = {
     },
     {
       id: "2",
-      title: "Scholastic Acheviements",
+      title: "Achievements",
       subHeader: "",
       startDate: "",
       jobDescription: "",
       endDate: "",
       content: `<ul>
-  <li><strong>Contributor</strong> to the project team newsletter at Accenture, enhancing team communication and knowledge sharing.</li>
-  <li><strong>Achieved Elite Certification</strong> in NPTEL for "Programming in Java," demonstrating advanced proficiency in Java programming.</li>
-  <li><strong>Secured 3234th Rank</strong> in Code Vita 2020, showcasing competitive coding skills among thousands of participants.</li>
+  <li>Elite NPTEL Certification — Programming in Java</li>
+  <li>Ranked 3234 in TCS CodeVita 2020 (among thousands of participants)</li>
+  <li>Contributed articles for Accenture's internal newsletter</li>
 </ul>`,
     },
     {

@@ -1,4 +1,4 @@
-import { Autocomplete, Grid, InputLabel, TextField } from "@mui/material";
+import { Grid, InputLabel, TextField } from "@mui/material";
 import React from "react";
 import FormFooter from "./FormFooter";
 import { type PersonalDetailState } from "../../store/slices/personalDetailSlice";
@@ -7,8 +7,6 @@ import { useForm } from "react-hook-form";
 import { incrementActiveStep } from "../../store/slices/activeStepperSlice";
 import { addPersonalInfo } from "../../store/slices/resumeSlice";
 import FormHeader from "./FormHeader";
-import { MAJOR_CITIES } from "../../constants/cities";
-import { COUNTRIES } from "../../constants/countries";
 const PersonalInfoForm = () => {
   const { activeStep, maxStep } = useAppSelector(
     (state) => state.activeStepper
@@ -100,81 +98,7 @@ const PersonalInfoForm = () => {
                   helperText={errors.linkedInAddress?.message}
                 />
               </Grid>
-              <Grid item xs={12} md={6}>
-                <InputLabel htmlFor="outlined-adornment-city">City</InputLabel>
 
-                <Autocomplete
-                  freeSolo
-                  id="outlined-adornment-city"
-                  options={MAJOR_CITIES}
-                  onChange={(_, newValue) => {
-                    setValue("city", newValue as string);
-                  }}
-                  value={watch("city")}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      size="small"
-                      fullWidth
-                      {...register("city", {
-                        required: { value: true, message: "City is required" },
-                      })}
-                      error={Boolean(errors.city)}
-                      helperText={errors.city?.message}
-                    />
-                  )}
-                />
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <InputLabel htmlFor="outlined-adornment-country">
-                  Country
-                </InputLabel>
-                <Autocomplete
-                  freeSolo
-                  id="outlined-adornment-country"
-                  options={COUNTRIES}
-                  defaultValue="India"
-                  onChange={(_, newValue) => {
-                    setValue("country", newValue as string);
-                  }}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      size="small"
-                      fullWidth
-                      {...register("country", {
-                        required: {
-                          value: true,
-                          message: "Country is required",
-                        },
-                      })}
-                      error={Boolean(errors.country)}
-                      helperText={errors.country?.message}
-                    />
-                  )}
-                />
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <InputLabel htmlFor="outlined-adornment-zipCode">
-                  Zip code
-                </InputLabel>
-                <TextField
-                  {...register("zipCode", {
-                    required: { value: true, message: "Zip code is required" },
-                    pattern: {
-                      value: /^\d{5}$|^\d{6}$|^\d{9}$/,
-                      message:
-                        "Enter a valid zip code. For Example 12345 or 123456 or 123456789",
-                    },
-                  })}
-                  id="outlined-adornment-zipCode"
-                  error={Boolean(errors.zipCode)}
-                  size="small"
-                  placeholder="e.g. 60185"
-                  fullWidth
-                  helperText={errors.zipCode?.message}
-                />
-              </Grid>
               <Grid item xs={12} md={6}>
                 <InputLabel htmlFor="outlined-adornment-emailAddress">
                   Email address
