@@ -64,7 +64,7 @@ const initialState: IResumeState = {
       content: `<ul>
   <li>Elite NPTEL Certification — Programming in Java</li>
   <li>Ranked 3234 in TCS CodeVita 2020 (among thousands of participants)</li>
-  <li>Contributed articles for Accenture's internal newsletter</li>
+  <li>Contributed articles for Accenture's internal newsletters</li>
 </ul>`,
     },
     {
