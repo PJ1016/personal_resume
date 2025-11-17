@@ -18,13 +18,14 @@ export const defaultExperience: ExperienceState = {
   startDate: "OCT 2021",
   endDate: "JAN 2025",
   jobDescription: `
+    <h4>Allstate — Employee Portal (10,000+ Users)</h4>
     <ul>
-        <li>Led code reviews and front-end collaboration, improving overall code quality and reducing recurring issues by 30%. Implemented CI/CD best practices using Jenkins, Git, JIRA, and ESLint, improving delivery efficiency and build reliability.</li>
-        <li>Designed and developed reusable UI components using React and Angular, increasing UI consistency and boosting user engagement by 25% across multiple enterprise modules.</li>
-        <li>Enhanced Allstate's Employee Portal, used by 10,000+ users, optimizing key workflows and improving user satisfaction scores by 40% through performance tuning and UX refinements.</li>
-        <li>Engineered claim management features to process 500+ claims/month, improving operational efficiency by 20% through automation and workflow optimization.</li>
-        <li>Integrated OKTA authentication to deliver secure, seamless login experiences across environments, reducing access-related issues and improving reliability.</li>
-        <li>Improved code quality by 80% through systematic Sonar issue reductions, stronger test coverage, and defect resolution strategies that improved long-term maintainability.</li>
+        <li>Led frontend development, code reviews, and CI/CD quality enforcement, improving code reliability and reducing recurring issues by 30%.</li>
+        <li>Built reusable UI components in React & Angular, improving UI consistency and raising user engagement metrics by 25% across multiple enterprise modules.</li>
+        <li>Optimized performance on high-traffic Employee Portal workflows, lifting user satisfaction scores by 40% through targeted UX and rendering improvements.</li>
+        <li>Developed claim management functionalities that automated workflows for 500+ claims/month, improving operational efficiency by 20%.</li>
+        <li>Integrated OKTA-based authentication, improving security and reducing access-related failures across environments.</li>
+        <li>Achieved an 80% reduction in Sonar issues through systematic refactoring, improved tests, and defect-prevention strategies.</li>
     </ul>
   `,
   primarySkill: "",
@@ -38,15 +39,15 @@ const currentExperience: ExperienceState = {
   startDate: "JAN 2025",
   endDate: "Present",
   jobDescription: `
-    <h4>Microsoft's Unified Support Pricing Platform:</h4>
+    <h4>Microsoft – Unified Support Pricing </h4>
     <ul>
-        <li>Built and optimized complex UI workflows using React + Fluent UI, improving rendering performance and reducing latency across pricing modules.</li>
-        <li>Integrated GraphQL APIs and implemented a hybrid state architecture (Redux Toolkit + Context) cutting redundant API calls by 20%.</li>
-        <li>Improved accessibility and load performance (WCAG 2.1) through virtualization, ARIA enhancements, and code splitting — resulting in significantly smoother navigation.</li>
-        <li>Automated deployments and feature flag workflows via Azure DevOps, decreasing environment configuration time by 30%.</li>
-        <li>Conducted React capability sessions, standardizing UI practices and reducing onboarding time for new engineers.</li>
-        <li>Architected reusable components and utilities aligned with Fluent UI, reducing development time for new modules by 20%.</li>
-        <li>Implemented unit tests using Jest + RTL, reducing post-deployment UI defects by 15–20%.</li>
+        <li>Engineered and optimized complex pricing workflows in React + Fluent UI, improving render performance and cutting UI latency across critical modules.</li>
+        <li>Integrated GraphQL APIs and built a hybrid state architecture (Redux Toolkit + Context), reducing redundant API calls by 20% and improving data consistency.</li>
+        <li>Enhanced accessibility and load performance via virtualization, ARIA updates, and code-splitting, resulting in smoother navigation and measurable UX improvements.</li>
+        <li>Automated feature-flag deployments and CI/CD workflows using Azure DevOps, decreasing environment configuration time by 30%.</li>
+        <li>Standardized UI development practices and conducted React capability sessions, reducing onboarding time for new engineers and improving cross-team code consistency.</li>
+        <li>Built reusable component utilities aligned with Fluent UI guidelines, accelerating development of new modules by 20%.</li>
+        <li>Implemented Jest + RTL unit tests, reducing UI defects after deployment by 15–20%.</li>
     </ul>
   `,
   primarySkill: "",

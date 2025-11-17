@@ -22,48 +22,50 @@ const initialState: IResumeState = {
   experience: defaultExperienceState,
   additionalContent: [
     {
+      content: `
+<ul>
+  <li><strong>Frontend</strong>: React.js, Redux Toolkit, TypeScript, JavaScript (ES6+), HTML5, CSS3, Fluent UI, Cloudscape, Material UI</li>
+  <li><strong>Architecture & Performance</strong>: SPA optimization, Code splitting, Virtualization, Accessibility (WCAG), ARIA, Caching strategies</li>
+  <li><strong>Testing</strong>: Jest, React Testing Library, Cypress</li>
+  <li><strong>Tooling & DevOps</strong>: Azure DevOps, Jenkins, Git, npm, JIRA, VersionOne</li>
+  <li><strong>APIs & Backend</strong>: GraphQL, REST APIs, Python, SQL</li>
+  <li><strong>Other</strong>: UI standardization, Component libraries, State management, CI/CD</li>
+</ul>
+
+`,
+      id: "1",
+      title: "Core Skills",
+      subHeader: "",
+      startDate: "",
+      jobDescription: "",
+      endDate: "",
+    },
+    {
       id: "",
-      title: "PROJECT — AI-Powered Resume Builder",
+      title: "AI-Powered Resume Builder (Personal Project)",
       subHeader: "",
       startDate: "",
       endDate: "",
       jobDescription: "",
       content: `<ul>
-  <li>Built a custom AI-driven resume generator using NLP and GPT-3 to produce tailored summaries and optimized job-specific content.</li>
-  <li>Integrated Gemini API to enhance clarity and structure of job role descriptions.</li>
-  <li>Implemented export-to-PDF functionality and built a clean UX for template customization.</li>
-  <li>Live Demo: <a href="https://pj1016.github.io/personal_resume" target="_blank">https://pj1016.github.io/personal_resume</a></li>
+  <li>Developed an AI-driven resume generator using React, TypeScript, and GPT-3 NLP models to create customizable, job-tailored resumes.</li>
+  <li>Integrated Gemini API for improving clarity and structure of generated content.</li>
+  <li>Added export-to-PDF functionality and built a clean, customizable user interface for end-users.</li>
+  <li>Live Demo: <a href="https://pj1016.github.io/personal_resume" target="_blank">pj1016.github.io/personal_resume</a></li>
 </ul>
 `,
     },
     {
       content: `
 <ul>
-  <li><strong>Frontend</strong>: React.js, Redux Toolkit, JavaScript (ES6+), TypeScript, HTML5, CSS3, Cloudscape, Material-UI</li>
-  <li><strong>Performance & Accessibility</strong>: Virtualization, Code Splitting, ARIA, WCAG 2.1</li>
-  <li><strong>Testing</strong>: Jest, React Testing Library, Cypress</li>
-  <li><strong>Tooling</strong>: Git, npm, Jenkins, Azure DevOps, JIRA, VersionOne</li>
-  <li><strong>Backend/Other</strong>: Python, SQL, GraphQL, REST APIs</li>
-</ul>
-
-`,
-      id: "1",
-      title: "Technical Skills",
-      subHeader: "",
-      startDate: "",
-      jobDescription: "",
-      endDate: "",
-    },
-    {
-      content: `
-<ul>
-  <li>Conducted React capability sessions for team members</li>
-  <li>Standardized UI practices across multiple squads</li>
+  <li>Conducted React capability sessions that elevated code quality standards across squads.</li>
+  <li>Standardized UI patterns and component structures, reducing fragmentation and improving onboarding efficiency.</li>
+  <li>Mentored junior developers on React, TypeScript, and testing practices.</li>
 </ul>
 
 `,
       id: "1.5",
-      title: "Leadership & Mentorship",
+      title: "Leadership & Impact",
       subHeader: "",
       startDate: "",
       jobDescription: "",
