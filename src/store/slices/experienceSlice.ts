@@ -39,7 +39,7 @@ const currentExperience: ExperienceState = {
   startDate: "JAN 2025",
   endDate: "Present",
   jobDescription: `
-    <h4>Microsoft – Unified Support Pricing </h4>
+    <h4>Microsoft – Unified Support Pricing</h4>
     <ul>
         <li>Engineered and optimized complex pricing workflows in React + Fluent UI, improving render performance and cutting UI latency across critical modules.</li>
         <li>Integrated GraphQL APIs and built a hybrid state architecture (Redux Toolkit + Context), reducing redundant API calls by 20% and improving data consistency.</li>
