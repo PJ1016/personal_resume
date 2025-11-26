@@ -24,12 +24,11 @@ const initialState: IResumeState = {
     {
       content: `
 <ul>
-  <li><strong>Frontend</strong>: React.js, Redux Toolkit, TypeScript, JavaScript (ES6+), HTML5, CSS3, Fluent UI, Cloudscape, Material UI</li>
-  <li><strong>Architecture & Performance</strong>: SPA optimization, Code splitting, Virtualization, Accessibility (WCAG), ARIA, Caching strategies</li>
+  <li><strong>Frontend</strong>: React.js, Next.js (App Router, SSR/SSG, Server Components, Parallel Fetching, Route Handlers), Redux Toolkit, TypeScript, JavaScript (ES6+), HTML5, CSS3, Fluent UI, Material UI, Cloudscape</li>
+  <li><strong>Architecture & Performance</strong>: SPA/SSR optimization, Code-splitting, Virtualization, Accessibility (WCAG 2.1), ARIA, Caching & revalidation, Streaming UI, Error boundaries</li>
   <li><strong>Testing</strong>: Jest, React Testing Library, Cypress</li>
-  <li><strong>Tooling & DevOps</strong>: Azure DevOps, Jenkins, Git, npm, JIRA, VersionOne</li>
-  <li><strong>APIs & Backend</strong>: GraphQL, REST APIs, Python, SQL</li>
-  <li><strong>Other</strong>: UI standardization, Component libraries, State management, CI/CD</li>
+  <li><strong>DevOps & Tools</strong>: Azure DevOps, Jenkins, Git, npm, JIRA, VersionOne</li>
+  <li><strong>APIs & Backend</strong>: GraphQL, REST APIs, SQL, Python</li>
 </ul>
 
 `,
@@ -42,7 +41,7 @@ const initialState: IResumeState = {
     },
     {
       id: "",
-      title: "AI-Powered Resume Builder (Personal Project)",
+      title: "AI-Powered Resume Builder — Next.js & TypeScript",
       subHeader: "",
       startDate: "",
       endDate: "",

@@ -39,15 +39,15 @@ const currentExperience: ExperienceState = {
   startDate: "JAN 2025",
   endDate: "Present",
   jobDescription: `
-    <h4>Microsoft – Unified Support Pricing</h4>
+    <h4>Microsoft — Unified Support Pricing</h4>
     <ul>
-        <li>Engineered and optimized complex pricing workflows in React + Fluent UI, improving render performance and cutting UI latency across critical modules.</li>
-        <li>Integrated GraphQL APIs and built a hybrid state architecture (Redux Toolkit + Context), reducing redundant API calls by 20% and improving data consistency.</li>
-        <li>Enhanced accessibility and load performance via virtualization, ARIA updates, and code-splitting, resulting in smoother navigation and measurable UX improvements.</li>
-        <li>Automated feature-flag deployments and CI/CD workflows using Azure DevOps, decreasing environment configuration time by 30%.</li>
-        <li>Standardized UI development practices and conducted React capability sessions, reducing onboarding time for new engineers and improving cross-team code consistency.</li>
-        <li>Built reusable component utilities aligned with Fluent UI guidelines, accelerating development of new modules by 20%.</li>
-        <li>Implemented Jest + RTL unit tests, reducing UI defects after deployment by 15–20%.</li>
+        <li>Migrating legacy React modules to Next.js App Router, implementing server components, parallel/streaming fetch, route handlers, and segment-based error boundaries, improving load performance and page responsiveness.</li>
+        <li>Built hybrid state management using Redux Toolkit + Context, reducing redundant network calls by 20% and improving consistency across multi-step workflows.</li>
+        <li>Optimized accessibility and rendering performance via code-splitting, ARIA updates, virtualization, and UI caching.</li>
+        <li>Automated feature-flag deployments and environment pipelines via Azure DevOps, reducing configuration effort by 30%.</li>
+        <li>Standardized reusable component libraries aligned with Fluent UI standards, reducing development cycle time by 20%.</li>
+        <li>Implemented Jest + React Testing Library tests, reducing post-release UI defects by 15–20%.</li>
+        <li>Collaborated closely with backend engineers and UX teams in an agile setup to iterate rapidly on UI workflows and optimize feature delivery.</li>
     </ul>
   `,
   primarySkill: "",
