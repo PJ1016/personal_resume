@@ -33,7 +33,7 @@ const PersonalDetails: React.FC = () => {
       </Typography>
 
       <Typography variant="subtitle1" color="text.secondary" mb={1}>
-        Frontend Engineer — React & TypeScript
+        Full-Stack Engineer (React & ASP.NET Core)
       </Typography>
 
       <Stack

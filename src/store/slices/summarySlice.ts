@@ -5,7 +5,7 @@ export interface ISummaryState {
   "#exp": string;
 }
 export const defaultSumamry =
-  "Senior Frontend Engineer with nearly 4 years of experience architecting scalable, high-performance React & Next.js applications used by 10,000+ enterprise users. Specialized in UI architecture, performance tuning, accessibility (WCAG 2.1), reusable component systems, and React + TypeScript + Next.js best practices. Proven track record improving performance by 20–40%, reducing defects by 15–20%, and accelerating developer productivity through standardized UI patterns and code quality improvements. Experienced across enterprise platforms, GraphQL, server-side rendering, parallel data fetching, cloud pipelines, and secure authentication workflows.";
+  "Full-Stack Engineer with 4+ years of experience building and maintaining enterprise web applications using React, TypeScript, and ASP.NET Core. Strong frontend expertise in UI architecture, state management, performance optimization, accessibility, and testing, with hands-on experience handling scoped backend tickets in ASP.NET Core. Proven experience integrating secure authentication using MSAL, working with REST and GraphQL APIs, and collaborating across frontend and backend teams to deliver reliable, scalable features.";
 export const initialState: ISummaryState = {
   summary: defaultSumamry,
   jobDescription: "",

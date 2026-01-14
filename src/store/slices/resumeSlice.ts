@@ -24,11 +24,11 @@ const initialState: IResumeState = {
     {
       content: `
 <ul>
-  <li><strong>Frontend</strong>: React.js, Next.js (App Router, SSR/SSG, Server Components, Parallel Fetching, Route Handlers), Redux Toolkit, TypeScript, JavaScript (ES6+), HTML5, CSS3, Fluent UI, Material UI, Cloudscape</li>
-  <li><strong>Architecture & Performance</strong>: SPA/SSR optimization, Code-splitting, Virtualization, Accessibility (WCAG 2.1), ARIA, Caching & revalidation, Streaming UI, Error boundaries</li>
-  <li><strong>Testing</strong>: Jest, React Testing Library, Cypress</li>
-  <li><strong>DevOps & Tools</strong>: Azure DevOps, Jenkins, Git, npm, JIRA, VersionOne</li>
-  <li><strong>APIs & Backend</strong>: GraphQL, REST APIs, SQL, Python</li>
+  <li><strong>Frontend</strong>: React.js, TypeScript, JavaScript (ES6+), Redux Toolkit, React Context, HTML5, CSS3, Fluent UI, Cloudscape, Material UI</li>
+  <li><strong>Backend (Application Level)</strong>: ASP.NET Core, REST APIs, GraphQL, Controllers, Middleware basics, Dependency Injection, DTOs, Validation, Error Handling, SQL (basic)</li>
+  <li><strong>Authentication & Security</strong>: MSAL (login flows, token acquisition, protected routes, secure API calls), Okta (integration exposure)</li>
+  <li><strong>Testing</strong>: Jest, React Testing Library, Cypress (working knowledge)</li>
+  <li><strong>Tools</strong>: Git, npm, Azure DevOps, Jenkins, JIRA, VersionOne</li>
 </ul>
 
 `,
