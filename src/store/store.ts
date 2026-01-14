@@ -3,7 +3,6 @@ import { personalDetailReducer } from "./slices/personalDetailSlice";
 import type { TypedUseSelectorHook } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import { summaryReducer } from "./slices/summarySlice";
-import { workExperienceReducer } from "./slices/workExperienceSlice";
 import { educationReducer } from "./slices/educationSlice";
 import { additionalContentReducer } from "./slices/additionalContentSlice";
 import { activeStepperReducer } from "./slices/activeStepperSlice";
@@ -13,7 +12,6 @@ export const store = configureStore({
   reducer: {
     personalDetail: personalDetailReducer,
     summary: summaryReducer,
-    workExperience: workExperienceReducer,
     education: educationReducer,
     additionalContent: additionalContentReducer,
     activeStepper: activeStepperReducer,

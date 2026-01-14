@@ -41,7 +41,7 @@ const initialState: IResumeState = {
     },
     {
       id: "",
-      title: "AI-Powered Resume Builder — Next.js & TypeScript",
+      title: "AI-Powered Resume Builder",
       subHeader: "",
       startDate: "",
       endDate: "",
