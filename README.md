@@ -1,46 +1,108 @@
-# Getting Started with Create React App
+# 🧠 AI-Powered Resume Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal resume website and AI-powered resume generator built with **React**, **TypeScript**, and **Google Gemini**. Generates tailored, job-specific resume content and lets you export it as a print-ready PDF — all from a clean, customizable UI.
 
-## Available Scripts
+🔗 **Live Demo:** [pj1016.github.io/personal_resume](https://pj1016.github.io/personal_resume)  
+🚀 **Also deployed on:** [personal-resume-rho.vercel.app](https://personal-resume-rho.vercel.app)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **AI content generation** — Uses Google Gemini API to generate and improve resume content based on job targets
+- **Rich text editing** — React Quill editor for inline resume customization
+- **Export to PDF** — Print-ready PDF export via `react-to-print`
+- **Form management** — React Hook Form for structured, validated resume input
+- **State management** — Redux Toolkit + React Query for efficient data handling
+- **Material UI** — Clean, professional UI built with MUI v5 components
+- **Fully typed** — 97%+ TypeScript codebase
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Layer | Technology |
+|---|---|
+| Framework | React 18, TypeScript |
+| AI | Google Gemini API (`@google/generative-ai`) |
+| UI | Material UI v5, Emotion, FontAwesome |
+| Forms | React Hook Form |
+| State | Redux Toolkit, React Query |
+| Editor | React Quill |
+| PDF Export | react-to-print |
+| Routing | React Router v6 |
+| Deployment | GitHub Pages, Vercel |
+| CI/CD | GitHub Actions |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js 16+
+- A Google Gemini API key ([get one here](https://aistudio.google.com/app/apikey))
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+git clone https://github.com/PJ1016/personal_resume.git
+cd personal_resume
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Environment Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Create a `.env` file in the root:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```env
+REACT_APP_GEMINI_API_KEY=your_gemini_api_key_here
+```
 
-## Learn More
+### Run Locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📦 Deployment
+
+### GitHub Pages
+
+```bash
+npm run deploy
+```
+
+### Vercel
+
+Connect the repo to [vercel.com](https://vercel.com) and set `REACT_APP_GEMINI_API_KEY` in your project environment variables.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+├── pages/            # Route-level page components
+├── store/            # Redux Toolkit slices
+├── hooks/            # Custom React hooks
+├── utils/            # Helper functions
+└── types/            # TypeScript type definitions
+```
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first.
+
+---
+
+## 📄 License
+
+MIT
